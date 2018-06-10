@@ -23,6 +23,8 @@ extern "C" {
             api_key_cpp = val_string(api_key);
         
         modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str());
+
+        return modio_environment;
     }
 }
 DEFINE_PRIM( init, 3 );
