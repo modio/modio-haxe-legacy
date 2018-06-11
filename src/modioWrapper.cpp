@@ -87,7 +87,7 @@ extern "C"
         if (val_is_string(security_code))
             security_code_cpp = val_string(security_code);
 
-        modioEmailExchange(NULL, (char *)security_code_cpp.c_str(), &onExchange);
+        modioEmailExchange(new int(current_function), (char *)security_code_cpp.c_str(), &onExchange);
 
         current_function++;        
     }
