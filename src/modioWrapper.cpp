@@ -46,6 +46,8 @@ extern "C"
     value modioWrapperProcess()
     {
         modioProcess();
+
+        return 0;
     }
 
     value modioWrapperIsLoggedIn()
@@ -56,6 +58,8 @@ extern "C"
     value modioWrapperLogout()
     {
         modioLogout();
+
+        return 0;
     }
 
     value modioWrapperEmailRequest(value email, value callback)
@@ -73,6 +77,8 @@ extern "C"
         modioEmailRequest(new int(current_function), (char *)email_cpp.c_str(), &onEmailRequest);
 
         current_function++;
+
+        return 0;
     }
 
     value modioWrapperEmailExchange(value security_code, value callback)
@@ -89,7 +95,9 @@ extern "C"
 
         modioEmailExchange(new int(current_function), (char *)security_code_cpp.c_str(), &onExchange);
 
-        current_function++;        
+        current_function++;
+
+        return 0;     
     }
 }
 
