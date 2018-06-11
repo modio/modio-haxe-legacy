@@ -25,7 +25,7 @@ void onExchange(void *object, ModioResponse response)
 
 extern "C"
 {
-    value modioGlueInit(value modio_environment, value game_id, value api_key)
+    value modioWrapperInit(value modio_environment, value game_id, value api_key)
     {
         u32 modio_environment_cpp;
         u32 game_id_cpp;
@@ -43,22 +43,22 @@ extern "C"
         return 0;
     }
 
-    value modioGlueProcess()
+    value modioWrapperProcess()
     {
         modioProcess();
     }
 
-    value modioGlueIsLoggedIn()
+    value modioWrapperIsLoggedIn()
     {
         return alloc_bool(modioIsLoggedIn());
     }
 
-    value modioGlueLogout()
+    value modioWrapperLogout()
     {
         modioLogout();
     }
 
-    value modioGlueEmailRequest(value email, value callback)
+    value modioWrapperEmailRequest(value email, value callback)
     {
         val_check_function(callback, 1);
         value *new_function = alloc_root();
@@ -75,7 +75,7 @@ extern "C"
         current_function++;
     }
 
-    value modioGlueEmailExchange(value security_code, value callback)
+    value modioWrapperEmailExchange(value security_code, value callback)
     {
         val_check_function(callback, 1);
         value *new_function = alloc_root();
@@ -93,9 +93,9 @@ extern "C"
     }
 }
 
-DEFINE_PRIM(modioGlueInit, 3);
-DEFINE_PRIM(modioGlueProcess, 0);
-DEFINE_PRIM(modioGlueEmailRequest, 2);
-DEFINE_PRIM(modioGlueEmailExchange, 2);
-DEFINE_PRIM(modioGlueIsLoggedIn, 0);
-DEFINE_PRIM(modioGlueLogout, 0);
+DEFINE_PRIM(modioWrapperInit, 3);
+DEFINE_PRIM(modioWrapperProcess, 0);
+DEFINE_PRIM(modioWrapperEmailRequest, 2);
+DEFINE_PRIM(modioWrapperEmailExchange, 2);
+DEFINE_PRIM(modioWrapperIsLoggedIn, 0);
+DEFINE_PRIM(modioWrapperLogout, 0);

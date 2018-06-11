@@ -1,11 +1,11 @@
 class Main 
 {
-    static var modioGlueInit:Int->Int->String->Void = cpp.Lib.load("modioGlue","modioGlueInit",3);
-    static var modioGlueProcess:Void->Void = cpp.Lib.load("modioGlue","modioGlueProcess",0);
-    static var modioGlueIsLoggedIn:Void->Bool = cpp.Lib.load("modioGlue","modioGlueIsLoggedIn",0);
-    static var modioGlueLogout:Void->Bool = cpp.Lib.load("modioGlue","modioGlueLogout",0);
-    static var modioGlueEmailRequest:String->(Int->Void)->Void = cpp.Lib.load("modioGlue","modioGlueEmailRequest",2);
-    static var modioGlueEmailExchange:String->(Int->Void)->Void = cpp.Lib.load("modioGlue","modioGlueEmailExchange",2);
+    static var modioWrapperInit:Int->Int->String->Void = cpp.Lib.load("modioWrapper","modioWrapperInit",3);
+    static var modioWrapperProcess:Void->Void = cpp.Lib.load("modioWrapper","modioWrapperProcess",0);
+    static var modioWrapperIsLoggedIn:Void->Bool = cpp.Lib.load("modioWrapper","modioWrapperIsLoggedIn",0);
+    static var modioWrapperLogout:Void->Bool = cpp.Lib.load("modioWrapper","modioWrapperLogout",0);
+    static var modioWrapperEmailRequest:String->(Int->Void)->Void = cpp.Lib.load("modioWrapper","modioWrapperEmailRequest",2);
+    static var modioWrapperEmailExchange:String->(Int->Void)->Void = cpp.Lib.load("modioWrapper","modioWrapperEmailExchange",2);
     static var finished = false;
 
     static function onEmailExchange(resonse_code:Int)
@@ -30,7 +30,7 @@ class Main
             
             trace("Please enter the 5 digit security code:");
             var security_code = Sys.stdin().readLine();
-            modioGlueEmailExchange(security_code, onEmailExchange);
+            modioWrapperEmailExchange(security_code, onEmailExchange);
         }
         else
         {
@@ -41,26 +41,26 @@ class Main
 
     static function main()
     {
-        modioGlueInit(1, 7, "e91c01b8882f4affeddd56c96111977b");
+        modioWrapperInit(1, 7, "e91c01b8882f4affeddd56c96111977b");
 
-        var is_logged_in = modioGlueIsLoggedIn();
+        var is_logged_in = modioWrapperIsLoggedIn();
         if(!is_logged_in)
         {
-            modioGlueEmailRequest("ahmed.hn.43@gmail.com", onEmailRequest);
+            modioWrapperEmailRequest("ahmed.hn.43@gmail.com", onEmailRequest);
         }else
         {
             trace("You are already logged in. Do you want to logout? (y/n)");
             var option = Sys.stdin().readLine();
             if(option=="y")
             {
-                modioGlueLogout();
+                modioWrapperLogout();
             }
             finished = true;
         }
 
         while (!finished)
         {
-            modioGlueProcess();
+            modioWrapperProcess();
         }
     }
 }
