@@ -4,15 +4,14 @@ This project is an unofficial wrapper of the mod.io SDK. It's currently compatib
 
 # OpenFL integration
 
-Follow the following steps to integrate the wrapper into your OpenFL project.
+Follow these steps to integrate the wrapper into your OpenFL project.
 
 ## Step 1: The setup
 
-* Download the wrapper from the releases page and extract it.
+* Download the wrapper from the [modioHaxe releases page](https://github.com/Turupawn/modioHaxe/releases) page and extract it.
 * Place the `ModioWrapper.hx` on your `Sources/` directory.
 * Place the `.ndll` files on your project's directory
-* Add the following in your project.xml
-
+* Add the following in your `project.xml`
 ```
 <ndll name="modioWrapperLinux_x64" if="linux"/>
 <ndll name="modioWrapperWindows_x86" if="windows"/>
@@ -41,7 +40,7 @@ Process the callbacks and events. Call this frequently, preferably on your updat
 ModioWrapper.process();
 ```
 
-### Authentication
+### Authentication functions
 
 To authenticate a user, you will have to ask for their email and then a 5-digit security code sent to their email.
 To do so, first call emailRequest to send the email and then emailExchange to exchange the security code for an
@@ -101,4 +100,5 @@ ModioWrapper.logout();
 
 ## Step 3 building and running
 
-* Add the corresponding library to your exported bin/ directory.
+* Complie and run using `openfl build windows` or `openfl build linux`. Mac OS is nos supported yet.
+* Add the corresponding library from the provided `Lib/` folder into your exported `bin/` directory, next to your binary executable.
