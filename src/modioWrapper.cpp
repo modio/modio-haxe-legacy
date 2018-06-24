@@ -188,6 +188,7 @@ extern "C"
     {
         val_check_function(callback, 1);
         download_listener = callback;
+        return 0;
     }
 
     value modioWrapperGetModDownloadQueue()
@@ -265,19 +266,21 @@ extern "C"
         {
             printf("nono\n");
         }
-        return alloc_int(67);
+        return 0;
     }
 
     // Edit mod
 
     value modioWrapperEditMod(value mod_editor, value callback)
     {
+        return 0;
     }
 
     // Uploads
 
     value modioWrapperAddModfile(value modfile_creator, value callback)
     {
+        return 0;
     }
 }
 
