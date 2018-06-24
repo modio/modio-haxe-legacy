@@ -16,3 +16,5 @@ void onModsGet(void* object, ModioResponse response, ModioMod* mods, u32 mods_si
 void onModSubscribed(void* object, ModioResponse response, ModioMod mod);
 void onModUnsubscribed(void* object, ModioResponse response);
 void onModDownload(u32 response_code, u32 mod_id);
+void onModAdded(void* object, ModioResponse response, ModioMod mod);
+void onModEdited(void* object, ModioResponse response, ModioMod mod);

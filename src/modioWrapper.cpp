@@ -28,6 +28,12 @@ std::string valueToString(value val)
     return 0;
 }
 
+std::string getValueFromObject(value object, std::string value_name)
+{
+    value value_haxe = val_field(object, val_id("x"));
+    return valueToString(value_haxe);
+}
+
 extern "C"
 {
     // General purpose
@@ -247,37 +253,79 @@ extern "C"
     {
         if (val_is_object(mod_creator))
         {
-            printf("it is\n");
+            val_check_function(callback, 1);
+            storeFunction(callback, current_function);
 
-            static field bField = 0;
-            value b = val_field(mod_creator, val_id("x"));
-            if (val_is_int(b))
-            {
-                int bb = val_int(b);
-                printf("%i", bb);
-            }
-            else
-            {
-                printf("naah\n");
-            }
+            std::string logo_path_cpp = getValueFromObject(mod_creator, "logo_path");
+            std::string name_cpp = getValueFromObject(mod_creator, "name");
+            std::string summary_cpp = getValueFromObject(mod_creator, "summary");
+            
+            ModioModCreator mod_creator;
+            modioInitModCreator(&mod_creator);
+            modioSetModCreatorLogoPath(&mod_creator, (char*)logo_path_cpp.c_str());
+            modioSetModCreatorName(&mod_creator, (char*)name_cpp.c_str());
+            modioSetModCreatorSummary(&mod_creator, (char*)summary_cpp.c_str());
+            modioAddMod(new int(current_function), mod_creator, &onModAdded);
+
+            current_function++;
         }
         else
         {
-            printf("nono\n");
+            printf("No object found\n");
         }
-        return alloc_int(67);
+        return alloc_int(0);
     }
 
     // Edit mod
 
-    value modioWrapperEditMod(value mod_editor, value callback)
+    value modioWrapperEditMod(value mod_id, value mod_editor, value callback)
     {
+        if (val_is_object(mod_editor))
+        {
+            val_check_function(callback, 1);
+            storeFunction(callback, current_function);
+
+            u32 mod_id_cpp = valueToU32(mod_id);
+
+            std::string logo_path_cpp = getValueFromObject(mod_editor, "logo_path");
+            std::string name_cpp = getValueFromObject(mod_editor, "name");
+            std::string summary_cpp = getValueFromObject(mod_editor, "summary");
+            
+            ModioModEditor mod_editor;
+            modioInitModEditor(&mod_editor);
+            modioSetModEditorName(&mod_editor, (char*)name_cpp.c_str());
+            modioSetModEditorSummary(&mod_editor, (char*)summary_cpp.c_str());
+            modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModEdited);
+
+            current_function++;
+        }
+        else
+        {
+            printf("No object found\n");
+        }
+        return alloc_int(0);
     }
 
     // Uploads
 
-    value modioWrapperAddModfile(value modfile_creator, value callback)
+    value modioWrapperAddModfile(value mod_id, value modfile_creator)
     {
+        if (val_is_object(modfile_creator))
+        {
+            u32 mod_id_cpp = valueToU32(mod_id);
+
+            std::string path_cpp = getValueFromObject(modfile_creator, "path");
+            
+            ModioModfileCreator modfile_creator;
+            modioInitModfileCreator(&modfile_creator);
+            modioSetModfileCreatorPath(&modfile_creator, (char*)path_cpp.c_str());
+            modioAddModfile(mod_id_cpp, modfile_creator);
+        }
+        else
+        {
+            printf("No object found\n");
+        }
+        return alloc_int(0);
     }
 }
 
@@ -300,5 +348,5 @@ DEFINE_PRIM(modioWrapperGetModDownloadQueue, 0);
 DEFINE_PRIM(modioWrapperGetInstalledMods, 0);
 DEFINE_PRIM(modioWrapperGetModState, 1);
 DEFINE_PRIM(modioWrapperAddMod, 2);
-DEFINE_PRIM(modioWrapperEditMod, 2);
+DEFINE_PRIM(modioWrapperEditMod, 3);
 DEFINE_PRIM(modioWrapperAddModfile, 2);

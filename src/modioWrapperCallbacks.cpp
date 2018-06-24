@@ -53,3 +53,15 @@ void onModDownload(u32 response_code, u32 mod_id)
         value ret = val_call2(download_listener, alloc_int(response_code), alloc_int(mod_id));
     }
 }
+
+void onModAdded(void* object, ModioResponse response, ModioMod mod)
+{
+    int function_number = *((int*)object);
+    value ret = val_call1(*(functions_stored[function_number]), alloc_int(response.code));
+}
+
+void onModEdited(void* object, ModioResponse response, ModioMod mod)
+{
+    int function_number = *((int*)object);
+    value ret = val_call1(*(functions_stored[function_number]), alloc_int(response.code));
+}
