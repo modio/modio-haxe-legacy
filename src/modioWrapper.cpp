@@ -194,6 +194,7 @@ extern "C"
     {
         val_check_function(callback, 1);
         download_listener = callback;
+        return 0;
     }
 
     value modioWrapperGetModDownloadQueue()
@@ -273,7 +274,7 @@ extern "C"
         {
             printf("No object found\n");
         }
-        return alloc_int(0);
+        return 0;
     }
 
     // Edit mod
@@ -303,7 +304,7 @@ extern "C"
         {
             printf("No object found\n");
         }
-        return alloc_int(0);
+        return 0;
     }
 
     // Uploads
@@ -325,7 +326,7 @@ extern "C"
         {
             printf("No object found\n");
         }
-        return alloc_int(0);
+        return 0;
     }
 }
 
