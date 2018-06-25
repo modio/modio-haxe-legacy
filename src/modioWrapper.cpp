@@ -28,9 +28,9 @@ std::string valueToString(value val)
     return 0;
 }
 
-std::string getValueFromObject(value object, std::string value_name)
+std::string getStringFromObject(value object, std::string value_name)
 {
-    value value_haxe = val_field(object, val_id("x"));
+    value value_haxe = val_field(object, val_id((char*)value_name.c_str()));
     return valueToString(value_haxe);
 }
 
@@ -111,11 +111,16 @@ extern "C"
 
         switch (filter_type_cpp)
         {
-        case 0:
-            // Todo
+        case 0:/*MODIO_SORT_BY_ID*/
             break;
-        case 1:
-            // Todo
+        case 1:/*MODIO_SORT_BY_RATING*/
+            modioSetFilterSort(&modio_filter, "rating", false);
+            break;
+        case 2: /*MODIO_SORT_BY_DATE_LIVE*/
+            modioSetFilterSort(&modio_filter, "date_live", false);
+            break;
+        case 3: /*MODIO_SORT_BY_DATE_UPDATED*/
+            modioSetFilterSort(&modio_filter, "date_updated", false);
             break;
         default:
             // Error
@@ -257,10 +262,10 @@ extern "C"
             val_check_function(callback, 1);
             storeFunction(callback, current_function);
 
-            std::string logo_path_cpp = getValueFromObject(mod_creator, "logo_path");
-            std::string name_cpp = getValueFromObject(mod_creator, "name");
-            std::string summary_cpp = getValueFromObject(mod_creator, "summary");
-            
+            std::string logo_path_cpp = getStringFromObject(mod_creator, "logo_path");
+            std::string name_cpp = getStringFromObject(mod_creator, "name");
+            std::string summary_cpp = getStringFromObject(mod_creator, "summary");
+
             ModioModCreator mod_creator;
             modioInitModCreator(&mod_creator);
             modioSetModCreatorLogoPath(&mod_creator, (char*)logo_path_cpp.c_str());
@@ -288,9 +293,9 @@ extern "C"
 
             u32 mod_id_cpp = valueToU32(mod_id);
 
-            std::string logo_path_cpp = getValueFromObject(mod_editor, "logo_path");
-            std::string name_cpp = getValueFromObject(mod_editor, "name");
-            std::string summary_cpp = getValueFromObject(mod_editor, "summary");
+            std::string logo_path_cpp = getStringFromObject(mod_editor, "logo_path");
+            std::string name_cpp = getStringFromObject(mod_editor, "name");
+            std::string summary_cpp = getStringFromObject(mod_editor, "summary");
             
             ModioModEditor mod_editor;
             modioInitModEditor(&mod_editor);
@@ -315,7 +320,7 @@ extern "C"
         {
             u32 mod_id_cpp = valueToU32(mod_id);
 
-            std::string path_cpp = getValueFromObject(modfile_creator, "path");
+            std::string path_cpp = getStringFromObject(modfile_creator, "path");
             
             ModioModfileCreator modfile_creator;
             modioInitModfileCreator(&modfile_creator);
