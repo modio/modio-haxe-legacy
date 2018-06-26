@@ -79,7 +79,7 @@ class Main
                 });
                 */
 
-                /*
+                ///*
                 trace("Adding mod");
                 var mod_creator = new ModCreator();
                 mod_creator.name = "haxe upload test";
@@ -92,11 +92,12 @@ class Main
                         trace("Mod added");
                     }else
                     {
+                        trace(response_code);
                         trace("Error adding mods");
                     }
                     finished = true;
                 });
-                */
+                //*/
             }
         }
 
