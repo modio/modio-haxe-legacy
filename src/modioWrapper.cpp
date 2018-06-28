@@ -270,9 +270,11 @@ extern "C"
         for (int i = 0; i < installed_mods_size; i++)
         {
             value installed_mod = alloc_empty_object();
-            alloc_field(installed_mod, val_id("id"), alloc_int(installed_mods[i].mod.id));
-            alloc_field(installed_mod, val_id("name"), alloc_string(installed_mods[i].mod.name));
-            alloc_field(installed_mod, val_id("description"), alloc_string(installed_mods[i].mod.description));
+            alloc_field(installed_mod, val_id("mod_id"), alloc_int(installed_mods[i].mod_id));
+            alloc_field(installed_mod, val_id("modfile_id"), alloc_int(installed_mods[i].modfile_id));
+            alloc_field(installed_mod, val_id("updated_at"), alloc_int(installed_mods[i].updated_at));
+            alloc_field(installed_mod, val_id("path"), alloc_string(installed_mods[i].path));
+            alloc_field(installed_mod, val_id("mod"), getModObject(installed_mods[i].mod));
 
             val_array_set_i(installed_mods_haxe, i, installed_mod);
         }
