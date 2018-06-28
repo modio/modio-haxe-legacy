@@ -2,7 +2,8 @@
 
 u32 current_function = 0;
 std::map<int, value*> functions_stored;
-value download_listener = NULL;
+value* download_listener = NULL;
+value* upload_listener = NULL;
 
 void onEmailRequest(void *object, ModioResponse response)
 {
@@ -49,8 +50,17 @@ void onModDownload(u32 response_code, u32 mod_id)
 {
     if(download_listener != NULL)
     {
-        val_check_function(download_listener, 1);
-        value ret = val_call2(download_listener, alloc_int(response_code), alloc_int(mod_id));
+        val_check_function(*download_listener, 2);
+        value ret = val_call2(*download_listener, alloc_int(response_code), alloc_int(mod_id));
+    }
+}
+
+void onModUpload(u32 response_code, u32 mod_id)
+{
+    if(upload_listener != NULL)
+    {
+        val_check_function(*upload_listener, 2);
+        value ret = val_call2(*upload_listener, alloc_int(response_code), alloc_int(mod_id));
     }
 }
 

@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include "modioWrapperCallbacks.h"
+#include "modioWrapperObjects.h"
 
 void storeFunction(value callback, int current_function)
 {
@@ -42,6 +43,11 @@ extern "C"
         u32 modio_environment_cpp = valueToU32(modio_environment);
         u32 game_id_cpp = valueToU32(game_id);
         std::string api_key_cpp = valueToString(api_key);
+
+        download_listener = alloc_root();
+        upload_listener = alloc_root();
+        modioSetDownloadListener(&onModDownload);
+        modioSetUploadListener(&onModUpload);
 
         modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str());
 
@@ -114,13 +120,13 @@ extern "C"
         case 0:/*MODIO_SORT_BY_ID*/
             break;
         case 1:/*MODIO_SORT_BY_RATING*/
-            modioSetFilterSort(&modio_filter, "rating", false);
+            modioSetFilterSort(&modio_filter, (char*)"rating", false);
             break;
         case 2: /*MODIO_SORT_BY_DATE_LIVE*/
-            modioSetFilterSort(&modio_filter, "date_live", false);
+            modioSetFilterSort(&modio_filter, (char*)"date_live", false);
             break;
         case 3: /*MODIO_SORT_BY_DATE_UPDATED*/
-            modioSetFilterSort(&modio_filter, "date_updated", false);
+            modioSetFilterSort(&modio_filter, (char*)"date_updated", false);
             break;
         default:
             // Error
@@ -197,14 +203,14 @@ extern "C"
 
     value modioWrapperSetDownloadListener(value callback)
     {
-        val_check_function(callback, 1);
-        download_listener = callback;
+        val_check_function(callback, 2);
+        *download_listener = callback;
         return 0;
     }
 
     value modioWrapperGetModDownloadQueue()
     {
-        u32 queue_size = modioGetModDownloadQueueSize();
+        u32 queue_size = modioGetModDownloadQueueCount();
         ModioQueuedModDownload *download_queue = (ModioQueuedModDownload *)malloc(queue_size * sizeof(*download_queue));
         modioGetModDownloadQueue(download_queue);
 
@@ -212,10 +218,13 @@ extern "C"
         for (int i = 0; i < queue_size; i++)
         {
             value queued_mod = alloc_empty_object();
-            alloc_field(queued_mod, val_id("id"), alloc_int(download_queue[i].mod.id));
-            alloc_field(queued_mod, val_id("name"), alloc_string(download_queue[i].mod.name));
-            alloc_field(queued_mod, val_id("description"), alloc_string(download_queue[i].mod.description));
+            alloc_field(queued_mod, val_id("state"), alloc_int(download_queue[i].state));
+            alloc_field(queued_mod, val_id("current_progress"), alloc_int(download_queue[i].current_progress));
+            alloc_field(queued_mod, val_id("total_size"), alloc_int(download_queue[i].total_size));
+            alloc_field(queued_mod, val_id("url"), alloc_string(download_queue[i].url));
+            alloc_field(queued_mod, val_id("path"), alloc_string(download_queue[i].path));
 
+            alloc_field(queued_mod, val_id("mod"), getModObject(download_queue[i].mod));
             val_array_set_i(download_queue_haxe, i, queued_mod);
         }
 
@@ -224,9 +233,36 @@ extern "C"
         return download_queue_haxe;
     }
 
+    value modioWrapperSetUploadListener(value callback)
+    {
+        val_check_function(callback, 2);
+        *upload_listener = callback;
+        return 0;
+    }
+
+    value modioWrapperGetModfileUploadQueue()
+    {
+        u32 queue_size = modioGetModfileUploadQueueCount();
+        ModioQueuedModfileUpload *upload_queue = (ModioQueuedModfileUpload *)malloc(queue_size * sizeof(*upload_queue));
+        modioGetModfileUploadQueue(upload_queue);
+
+        value upload_queue_haxe = alloc_array(queue_size);
+        for (int i = 0; i < queue_size; i++)
+        {
+            value queued_mod = alloc_empty_object();
+            alloc_field(queued_mod, val_id("mod_id"), alloc_int(upload_queue[i].mod_id));
+
+            val_array_set_i(upload_queue_haxe, i, queued_mod);
+        }
+
+        free(upload_queue);
+
+        return upload_queue_haxe;
+    }
+
     value modioWrapperGetInstalledMods()
     {
-        u32 installed_mods_size = modioGetInstalledModsSize();
+        u32 installed_mods_size = modioGetInstalledModsCount();
         ModioInstalledMod *installed_mods = (ModioInstalledMod *)malloc(installed_mods_size * sizeof(*installed_mods));
         modioGetInstalledMods(installed_mods);
 
@@ -348,9 +384,11 @@ DEFINE_PRIM(modioWrapperInstallMod, 1);
 DEFINE_PRIM(modioWrapperUninstallMod, 1);
 DEFINE_PRIM(modioWrapperPauseDownloads, 0);
 DEFINE_PRIM(modioWrapperResumeDownloads, 0);
-DEFINE_PRIM(modioWrapperPrioritizeDownload, 0);
-DEFINE_PRIM(modioWrapperSetDownloadListener, 0);
+DEFINE_PRIM(modioWrapperPrioritizeDownload, 1);
+DEFINE_PRIM(modioWrapperSetDownloadListener, 1);
 DEFINE_PRIM(modioWrapperGetModDownloadQueue, 0);
+DEFINE_PRIM(modioWrapperSetUploadListener, 1);
+DEFINE_PRIM(modioWrapperGetModfileUploadQueue, 0);
 DEFINE_PRIM(modioWrapperGetInstalledMods, 0);
 DEFINE_PRIM(modioWrapperGetModState, 1);
 DEFINE_PRIM(modioWrapperAddMod, 2);
