@@ -371,6 +371,18 @@ extern "C"
         }
         return 0;
     }
+
+    // Me
+    value modioWrapperGetAuthenticatedUser(value callback)
+    {
+        val_check_function(callback, 2);
+        storeFunction(callback, current_function);
+
+        modioGetAuthenticatedUser(new int(current_function), &onGetAuthenticatedUser);
+
+        current_function++;
+        return 0;
+    }
 }
 
 DEFINE_PRIM(modioWrapperInit, 3);
@@ -396,3 +408,4 @@ DEFINE_PRIM(modioWrapperGetModState, 1);
 DEFINE_PRIM(modioWrapperAddMod, 2);
 DEFINE_PRIM(modioWrapperEditMod, 3);
 DEFINE_PRIM(modioWrapperAddModfile, 2);
+DEFINE_PRIM(modioWrapperGetAuthenticatedUser, 1);

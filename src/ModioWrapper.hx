@@ -78,4 +78,5 @@ class ModioWrapper
   public static var addMod:ModCreator->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
   public static var editMod:Int->ModEditor->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
   public static var addModfile:Int->ModfileCreator->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
+  public static var getAuthenticatedUser:(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAuthenticatedUser", 1);
 }

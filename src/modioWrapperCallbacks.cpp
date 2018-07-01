@@ -75,3 +75,9 @@ void onModEdited(void* object, ModioResponse response, ModioMod mod)
     int function_number = *((int*)object);
     value ret = val_call1(*(functions_stored[function_number]), alloc_int(response.code));
 }
+
+void onGetAuthenticatedUser(void* object, ModioResponse response, ModioUser user)
+{
+    int function_number = *((int*)object);
+    value ret = val_call2(*(functions_stored[function_number]), alloc_int(response.code), getUserObject(user));
+}

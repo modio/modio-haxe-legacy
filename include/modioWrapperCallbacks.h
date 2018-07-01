@@ -1,10 +1,4 @@
-#include <hx/CFFI.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <string.h>
-#include <map>
-#include <modio/modio.h>
+#include "modioWrapperObjects.h"
 
 extern u32 current_function;
 extern std::map<int, value*> functions_stored;
@@ -20,3 +14,4 @@ void onModDownload(u32 response_code, u32 mod_id);
 void onModUpload(u32 response_code, u32 mod_id);
 void onModAdded(void* object, ModioResponse response, ModioMod mod);
 void onModEdited(void* object, ModioResponse response, ModioMod mod);
+void onGetAuthenticatedUser(void* object, ModioResponse response, ModioUser user);
