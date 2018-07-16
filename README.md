@@ -7,7 +7,7 @@ Instead of building the wrapper yourself, you can download precompiled binares o
 * The `NDLLs/` directory, again, place the corresponding `.ndll` next to your executable.
 * The `ModioWrapper.hx` file, import it in your Haxe project/
 
-Once this is done, you can call all the static functions under the `ModioWrapper` class. See the [Main.hx](https://github.com/Turupawn/modioHaxe/blob/master/src/Main.hx) for details.
+Once this is done, you can call all the static functions under the `ModioWrapper` class. See the [Main.hx](https://github.com/Turupawn/modioHaxe/blob/master/src/Main.hx) example for details and the [wiki](https://github.com/Turupawn/modioHaxe/wiki) for the list of implemented functions so far.
 
 # Building the NDLL
 
@@ -38,3 +38,7 @@ clang++ -shared -L./lib/macos -lmodio ./src/modioWrapper.cpp ./src/modioWrapperC
 ```
 
 This will generate the `modioWrapperMacOS.ndll`.
+
+# Shell Scripts
+
+`LinuxBuild64bits.sh`, `MacOSBuild.sh` and `VisualBuild32bits.bat` have been added to this repository to automate the building and testing process. Feel free to use and adapt them to your own setup.
