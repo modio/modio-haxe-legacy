@@ -1,3 +1,40 @@
-# mod.io Haxe Wrapper
+This project is an unofficial Haxe wrapper of the [mod.io SDK](sdk.mod.io). It's currently compatible with Windows 32 bits, Linux 64 bits, and Mac OS. The wrapper is not 100% complete but it's ready to offer fundamental mods functionality.
 
-This project is an unofficial wrapper of the mod.io SDK. It's currently compatible with Linux 64 bits, Windows 32 bits and 64bits.
+# Precompiled Binaries
+
+Instead of building the wrapper yourself, you can download precompiled binares on the [releases tab](https://github.com/Turupawn/modioHaxe/releases/). Each release ships the following:
+* The `Libs/` directory, place the corresponing `.dll`, `.so` or `.dylib` next to your executable.
+* The `NDLLs/` directory, again, place the corresponding `.ndll` next to your executable.
+* The `ModioWrapper.hx` file, import it in your Haxe project/
+
+Once this is done, you can call all the static functions under the `ModioWrapper` class. See the [Main.hx](https://github.com/Turupawn/modioHaxe/blob/master/src/Main.hx) for details.
+
+# Building the NDLL
+
+The NDLL acts as a "glue code" between C and Haxe, you write your functions on C and then you can call them on Haxe by using Haxe's [C Foreign Functions Interface](http://old.haxe.org/doc/cpp/ffi). You build the NDLL just like any other shared library on your C++ compiler. Use the corresponing command to build it.
+
+## Visual Studio on Windows
+
+Note: This should work on *Visual Studio 15 2017* and newer versions. You will need to additionally install the *Visual Studio C++ Redistributable*.
+
+```bash
+cl /D_USRDLL /D_WINDLL ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp lib/windows32/modio.lib /I include /link /DLL /OUT:./modioWrapperWindows_x86.ndll
+```
+
+This will generate the `modioWrapperWindows_x86.ndll`.
+
+## G++ on Linux
+
+```bash
+g++ -L./lib/linux64 ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -shared -o ./modioWrapperLinux_x64.ndll -I./include -lmodio -fPIC -Wl,-rpath .
+```
+
+This will generate the `modioWrapperLinux_x64.ndll`.
+
+## Clang on Mac OS
+
+```bash
+clang++ -shared -L./lib/macos -lmodio ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -o ./modioWrapperMacOS.ndll -I./include -std=c++11
+```
+
+This will generate the `modioWrapperMacOS.ndll`.
