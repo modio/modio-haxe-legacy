@@ -9,6 +9,10 @@ Instead of building the wrapper yourself, you can download precompiled binares o
 
 Once this is done, you can call all the static functions under the `ModioWrapper` class. See the [Main.hx](https://github.com/Turupawn/modioHaxe/blob/master/src/Main.hx) example for details and the [wiki](https://github.com/Turupawn/modioHaxe/wiki) for the list of implemented functions so far.
 
+## OpenFL
+
+In case you are using OpenFL, take a look at the OpenFL [installation tutorial](https://github.com/Turupawn/modioOpenFLExample#openfl-integration) and [examples](https://github.com/Turupawn/modioOpenFLExample/tree/master/Source).
+
 # Building the NDLL
 
 The NDLL acts as a "glue code" between C and Haxe, you write your functions on C and then you can call them on Haxe by using Haxe's [C Foreign Functions Interface](http://old.haxe.org/doc/cpp/ffi). You build the NDLL just like any other shared library on your C++ compiler. Use the corresponing command to build it.
