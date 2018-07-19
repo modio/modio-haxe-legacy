@@ -1,4 +1,4 @@
-This project is an unofficial Haxe wrapper of the [mod.io SDK](https://sdk.mod.io). It's currently compatible with Windows 32 bits, Linux 64 bits, and Mac OS. The wrapper is not 100% complete but it's ready to offer fundamental mods functionality.
+This project is an unofficial [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It's currently compatible with Windows 32 bits, Linux 64 bits, and Mac OS. The wrapper is not 100% complete but it's ready to offer fundamental mods functionality.
 
 # Precompiled Binaries
 
