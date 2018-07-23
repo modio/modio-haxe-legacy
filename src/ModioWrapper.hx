@@ -53,6 +53,9 @@ class ModioWrapper
   #if (windows)
     static var ndll_name:String = "modioWrapperWindows_x86";
   #end
+  #if (macos)
+    static var ndll_name:String = "modioWrapperMacOS";
+  #end
 
   public static var init:Int->Int->String->Void = cpp.Lib.load(ndll_name,"modioWrapperInit",3);
   public static var process:Void->Void = cpp.Lib.load(ndll_name,"modioWrapperProcess",0);
