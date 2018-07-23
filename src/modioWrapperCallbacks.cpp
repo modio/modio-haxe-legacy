@@ -24,11 +24,8 @@ void onModsGet(void* object, ModioResponse response, ModioMod* mods, u32 mods_si
     value mods_haxe = alloc_array (mods_size);
     for (int i = 0; i < mods_size; i++)
     {
-        value mod = alloc_empty_object();
-        alloc_field(mod,val_id("id"),alloc_int(mods[i].id));
-        alloc_field(mod,val_id("name"),alloc_string(mods[i].name));
-        alloc_field(mod,val_id("description"),alloc_string(mods[i].description));
-        
+        ModioMod modio_mod = mods[i];
+        value mod = getModObject(modio_mod);
         val_array_set_i (mods_haxe, i, mod);
     }
     value ret = val_call2(*(functions_stored[function_number]), mods_haxe, alloc_int(response.code));
