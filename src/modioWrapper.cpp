@@ -49,7 +49,7 @@ extern "C"
         modioSetDownloadListener(&onModDownload);
         modioSetUploadListener(&onModUpload);
 
-        modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str());
+        modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str(), NULL);
 
         return 0;
     }
