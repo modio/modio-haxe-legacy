@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <map>
-#include <modio/modio.h>
+#include <modio.h>
 
 value getTagObject(ModioTag modio_Tag);
 value getMediaObject(ModioMedia modio_media);
