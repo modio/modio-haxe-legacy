@@ -1,11 +1,11 @@
-This project is an unofficial [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It's currently compatible with Windows 32 bits, Linux 64 bits, and Mac OS. The wrapper is not 100% complete but it's ready to offer fundamental mods functionality. The mod.io's [getting started guide](https://apps.mod.io/guides/getting-started) is a good place to start if you are completely new to [mod.io](https://mod.io/) and it's [API](https://docs.mod.io/#getting-started).
+This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It's currently compatible with Windows 32 bits, Linux 64 bits, and Mac OS. The wrapper still does not cover all the functionality the SDK provides yet but it's ready to offer fundamental mods support for your games. The mod.io's [getting started guide](https://apps.mod.io/guides/getting-started) is a good place to start if you are completely new to [mod.io](https://mod.io/) and it's [API](https://docs.mod.io/#getting-started).
 
-# Precompiled Binaries
+# Getting started
 
-Instead of building the wrapper yourself, you can download precompiled binares on the [releases tab](https://github.com/Turupawn/modioHaxe/releases/). Each release ships the following:
-* The `Libs/` directory, place the corresponing `.dll`, `.so` or `.dylib` next to your executable.
-* The `NDLLs/` directory, again, place the corresponding `.ndll` next to your executable.
-* The `ModioWrapper.hx` file, import it in your Haxe project/
+Instead of building the wrapper yourself, you can download precompiled binares on the [releases tab](https://github.com/Turupawn/modioHaxe/releases/). Once you have done that, follow this steps:
+1. Place the corresponing `.dll`, `.so` or `.dylib` next to your executable. They are located in the `Libs/` directory.
+2. Again, place the corresponding `.ndll` next to your executable. They are located in the `NDLLs/` directory.
+3. Import the `ModioWrapper.hx` file it in your Haxe project.
 
 Once this is done, you can call all the static functions under the `ModioWrapper` class. See the [Main.hx](https://github.com/Turupawn/modioHaxe/blob/master/src/Main.hx) example for details and the [wiki](https://github.com/Turupawn/modioHaxe/wiki) for the list of implemented functions so far.
 
