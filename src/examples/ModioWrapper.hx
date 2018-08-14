@@ -1,40 +1,40 @@
 class ModCreator
 {
-  public var logo_path:String;
-  public var name:String;
-  public var summary:String;
-  public function new()
-  {
-    logo_path = "";
-    name = "";
-    summary = "";
-  }
+    public var logo_path:String;
+    public var name:String;
+    public var summary:String;
+    public function new()
+    {
+        logo_path = "";
+        name = "";
+        summary = "";
+    }
 }
 
 class ModEditor
 {
-  public var logo_path:String;
-  public var name:String;
-  public var summary:String;
-  public function new()
-  {
-    logo_path = "";
-    name = "";
-    summary = "";
-  }
+    public var logo_path:String;
+    public var name:String;
+    public var summary:String;
+    public function new()
+    {
+        logo_path = "";
+        name = "";
+        summary = "";
+    }
 }
 
 class ModfileCreator
 {
-  public var logo_path:String;
-  public var name:String;
-  public var summary:String;
-  public function new()
-  {
-    logo_path = "";
-    name = "";
-    summary = "";
-  }
+    public var logo_path:String;
+    public var name:String;
+    public var summary:String;
+    public function new()
+    {
+        logo_path = "";
+        name = "";
+        summary = "";
+    }
 }
 
 class ModioWrapper
