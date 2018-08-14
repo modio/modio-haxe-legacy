@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir bin
-cp lib/macos/libmodio.dylib bin/
-clang++ -shared -L./lib/macos -lmodio ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -o ./bin/modioWrapperMacOS.ndll -I./include -std=c++11
-haxe -cp src -main Main -cpp bin -D macos 
+cp mod.io-sdk-v0.7.0/lib/macos/x64/libmodio.dylib bin/
+clang++ -shared -L./mod.io-sdk-v0.7.0/lib/macos/x64 -lmodio ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -o ./bin/modioWrapperMacOS.ndll -I./include -I./mod.io-sdk-v0.7.0/include -std=c++11
+haxe -cp src -main Main -cpp bin -D macos
 LD_LIBRARY_PATH=./bin ./bin/Main

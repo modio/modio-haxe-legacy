@@ -1,3 +1,4 @@
 bin/
+!mod.io-sdk-v0.7.0/*
 .modio/
 *.obj
