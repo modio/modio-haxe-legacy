@@ -303,7 +303,7 @@ extern "C"
   {
     if (val_is_object(mod_creator))
     {
-      val_check_function(callback, 1);
+      val_check_function(callback, 2);
       storeFunction(callback, current_function);
 
       std::string logo_path_cpp = getStringFromObject(mod_creator, "logo_path");

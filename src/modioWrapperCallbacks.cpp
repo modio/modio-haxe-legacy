@@ -64,7 +64,7 @@ void onModUpload(u32 response_code, u32 mod_id)
 void onModAdded(void* object, ModioResponse response, ModioMod mod)
 {
   int function_number = *((int*)object);
-  value ret = val_call1(*(functions_stored[function_number]), alloc_int(response.code));
+  value ret = val_call2(*(functions_stored[function_number]), alloc_int(response.code), getModObject(mod));
 }
 
 void onModEdited(void* object, ModioResponse response, ModioMod mod)

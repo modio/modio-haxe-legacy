@@ -1,40 +1,132 @@
 class ModCreator
 {
-    public var logo_path:String;
-    public var name:String;
-    public var summary:String;
-    public function new()
-    {
-        logo_path = "";
-        name = "";
-        summary = "";
-    }
+  // Required fields
+  public var logo_path:String;
+  public var name:String;
+  public var summary:String;
+  // Optional fields
+  public var visible:Int;
+  public var maturity_option:Int;
+  public var name_id:Int;
+  public var description:String;
+  public var homepage:String;
+  public var metadata:String;
+  public var tags:Array<String>;
+
+  public function new()
+  {
+    logo_path = "";
+    name = "";
+    summary = "";
+    visible = 0;
+    maturity_option = 0;
+    name_id = 0;
+    description = "";
+    homepage = "";
+    metadata = "";
+    tags = new Array<String>();
+  }
+
+  // Required fields
+  public function setName(name:String)
+  {
+    this.name = name;
+  }
+  public function setSummary(summary:String)
+  {
+    this.summary = summary;
+  }
+  public function setLogoPath(logo_path:String)
+  {
+    this.logo_path = logo_path;
+  }
+
+  // Optional fields
+  public function setVisible(visible:Int)
+  {
+    this.visible = visible;
+  }
+  public function setMaturityOption(maturity_option:Int)
+  {
+    this.maturity_option = maturity_option;
+  }
+  public function setNameid(name_id:Int)
+  {
+    this.name_id = name_id;
+  }
+  public function setDescription(description:String)
+  {
+    this.description = description;
+  }
+  public function setHomepage(homepage:String)
+  {
+    this.homepage = homepage;
+  }
+  public function setMetadata(metadata:String)
+  {
+    this.metadata = metadata;
+  }
+  public function addTag(tag:String)
+  {
+    this.tags.push(tag);
+  }
 }
 
 class ModEditor
 {
-    public var logo_path:String;
-    public var name:String;
-    public var summary:String;
-    public function new()
-    {
-        logo_path = "";
-        name = "";
-        summary = "";
-    }
+  public var logo_path:String;
+  public var name:String;
+  public var summary:String;
+  public function new()
+  {
+    logo_path = "";
+    name = "";
+    summary = "";
+  }
 }
 
 class ModfileCreator
 {
-    public var logo_path:String;
-    public var name:String;
-    public var summary:String;
-    public function new()
-    {
-        logo_path = "";
-        name = "";
-        summary = "";
-    }
+  // Required field
+  public var path:String;
+  // Optional fields
+  public var version:String;
+  public var changelog:String;
+  public var active:Int;
+  public var filehash:String;
+
+  public function new()
+  {
+    path = "";
+    version = "";
+    changelog = "";
+    active = 0;
+    filehash = "";
+  }
+
+  // Required field
+  public function setPath(path:String)
+  {
+    this.path = path;
+  }
+
+  // Optional fields
+  public function setVersion(version:String)
+  {
+    this.version = version;
+  }
+  public function setChangelog(changelog:String)
+  {
+    this.changelog = changelog;
+  }
+  public function setActive(active:Int)
+  {
+    this.active = active;
+  }
+  public function setFilehash(filehash:String)
+  {
+    this.filehash = filehash;
+  }
 }
 
 class ModioWrapper
@@ -46,6 +138,10 @@ class ModioWrapper
   public static var MODIO_SORT_BY_RATING        = 1;
   public static var MODIO_SORT_BY_DATE_LIVE     = 2;
   public static var MODIO_SORT_BY_DATE_UPDATED  = 3;
+
+  public static var MODIO_HIDDEN  = 0;
+  public static var MODIO_PUBLIC  = 1;
+
 
   #if (linux)
     static var ndll_name:String = "modioWrapperLinux_x64";
@@ -78,8 +174,8 @@ class ModioWrapper
   public static var getModfileUploadQueue:Void->Array<Dynamic> = cpp.Lib.load(ndll_name,"modioWrapperGetModfileUploadQueue",0);
   public static var getInstalledMods:Void->Array<Dynamic> = cpp.Lib.load(ndll_name,"modioWrapperGetInstalledMods",0);
   public static var getModState:Int->Int = cpp.Lib.load(ndll_name,"modioWrapperGetModState",1);
-  public static var addMod:ModCreator->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
+  public static var addMod:ModCreator->(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
   public static var editMod:Int->ModEditor->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
-  public static var addModfile:Int->ModfileCreator->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
+  public static var addModfile:Int->ModfileCreator->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
   public static var getAuthenticatedUser:(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAuthenticatedUser", 1);
 }
