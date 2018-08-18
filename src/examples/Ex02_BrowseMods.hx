@@ -22,6 +22,9 @@ class Ex02_BrowseMods
 
     ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
 
+    // Before requesting mods, let's define the query filters
+    // Other sorting types available are: MODIO_SORT_BY_ID, MODIO_SORT_BY_DATE_LIVE and MODIO_SORT_BY_DATE_UPDATED
+    var sorting_type = ModioWrapper.MODIO_SORT_BY_RATING;
     var mods_per_page = 4;
     var page = 0;
     ModioWrapper.getMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int)

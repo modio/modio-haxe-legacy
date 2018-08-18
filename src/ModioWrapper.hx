@@ -7,7 +7,7 @@ class ModCreator
   // Optional fields
   public var visible:Int;
   public var maturity_option:Int;
-  public var name_id:Int;
+  public var name_id:String;
   public var description:String;
   public var homepage:String;
   public var metadata:String;
@@ -20,7 +20,7 @@ class ModCreator
     summary = "";
     visible = 0;
     maturity_option = 0;
-    name_id = 0;
+    name_id = "";
     description = "";
     homepage = "";
     metadata = "";
@@ -50,7 +50,7 @@ class ModCreator
   {
     this.maturity_option = maturity_option;
   }
-  public function setNameid(name_id:Int)
+  public function setNameid(name_id:String)
   {
     this.name_id = name_id;
   }
@@ -92,7 +92,7 @@ class ModfileCreator
   // Optional fields
   public var version:String;
   public var changelog:String;
-  public var active:Int;
+  public var active:Bool;
   public var filehash:String;
 
   public function new()
@@ -100,7 +100,7 @@ class ModfileCreator
     path = "";
     version = "";
     changelog = "";
-    active = 0;
+    active = true;
     filehash = "";
   }
 
@@ -119,7 +119,7 @@ class ModfileCreator
   {
     this.changelog = changelog;
   }
-  public function setActive(active:Int)
+  public function setActive(active:Bool)
   {
     this.active = active;
   }
@@ -131,17 +131,26 @@ class ModfileCreator
 
 class ModioWrapper
 {
+  // Environment constants
   public static var MODIO_ENVIRONMENT_LIVE = 0;
   public static var MODIO_ENVIRONMENT_TEST = 1;
 
+  // Filter constants
   public static var MODIO_SORT_BY_ID            = 0;
   public static var MODIO_SORT_BY_RATING        = 1;
   public static var MODIO_SORT_BY_DATE_LIVE     = 2;
   public static var MODIO_SORT_BY_DATE_UPDATED  = 3;
 
+  // Mod visibility constants
   public static var MODIO_HIDDEN  = 0;
   public static var MODIO_PUBLIC  = 1;
 
+  // Maturity options
+  public static var MODIO_MATURITY_NONE     = 0;
+  public static var MODIO_MATURITY_ALCOHOL  = 1;
+  public static var MODIO_MATURITY_DRUGS    = 2;
+  public static var MODIO_MATURITY_VIOLENCE = 4;
+  public static var MODIO_MATURITY_EXPLICIT = 8;
 
   #if (linux)
     static var ndll_name:String = "modioWrapperLinux_x64";

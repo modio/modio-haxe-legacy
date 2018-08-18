@@ -7,24 +7,26 @@ class ModCreator
   // Optional fields
   public var visible:Int;
   public var maturity_option:Int;
-  public var name_id:Int;
+  public var name_id:String;
   public var description:String;
   public var homepage:String;
   public var metadata:String;
   public var tags:Array<String>;
+  public var tags_size:Int;
 
   public function new()
   {
     logo_path = "";
     name = "";
     summary = "";
-    visible = 0;
-    maturity_option = 0;
-    name_id = 0;
+    visible = -1;
+    maturity_option = -1;
+    name_id = "";
     description = "";
     homepage = "";
     metadata = "";
     tags = new Array<String>();
+    tags_size = 0;
   }
 
   // Required fields
@@ -50,7 +52,7 @@ class ModCreator
   {
     this.maturity_option = maturity_option;
   }
-  public function setNameid(name_id:Int)
+  public function setNameid(name_id:String)
   {
     this.name_id = name_id;
   }
@@ -69,19 +71,76 @@ class ModCreator
   public function addTag(tag:String)
   {
     this.tags.push(tag);
+    tags_size++;
   }
 }
 
 class ModEditor
 {
-  public var logo_path:String;
+  public var visible:Int;
+  public var maturity_option:Int;
+  public var status:Int;
   public var name:String;
+  public var name_id:String;
   public var summary:String;
+  public var description:String;
+  public var homepage:String;
+  public var modfile:Int;
+  public var metadata:String;
+
   public function new()
   {
-    logo_path = "";
-    name = "";
-    summary = "";
+    this.visible = -1;
+    this.maturity_option = -1;
+    this.status = -1;
+    this.name = "";
+    this.name_id = "";
+    this.summary = "";
+    this.description = "";
+    this.homepage = "";
+    this.modfile = -1;
+    this.metadata = "";
+  }
+
+  public function setVisible(visible:Int)
+  {
+    this.visible = visible;
+  }
+  public function setMaturityOption(maturity_option:Int)
+  {
+    this.maturity_option = maturity_option;
+  }
+  public function setStatus(status:Int)
+  {
+    this.status = status;
+  }
+  public function setName(name:String)
+  {
+    this.name = name;
+  }
+  public function setNameid(name_id:String)
+  {
+    this.name_id = name_id;
+  }
+  public function setSummary(summary:String)
+  {
+    this.summary = summary;
+  }
+  public function setDescription(description:String)
+  {
+    this.description = description;
+  }
+  public function setHomepage(homepage:String)
+  {
+    this.homepage = homepage;
+  }
+  public function setModfile(modfile:Int)
+  {
+    this.modfile = modfile;
+  }
+  public function setMetadata(metadata:String)
+  {
+    this.metadata = metadata;
   }
 }
 
@@ -92,7 +151,7 @@ class ModfileCreator
   // Optional fields
   public var version:String;
   public var changelog:String;
-  public var active:Int;
+  public var active:Bool;
   public var filehash:String;
 
   public function new()
@@ -100,7 +159,7 @@ class ModfileCreator
     path = "";
     version = "";
     changelog = "";
-    active = 0;
+    active = true;
     filehash = "";
   }
 
@@ -119,7 +178,7 @@ class ModfileCreator
   {
     this.changelog = changelog;
   }
-  public function setActive(active:Int)
+  public function setActive(active:Bool)
   {
     this.active = active;
   }
@@ -131,17 +190,26 @@ class ModfileCreator
 
 class ModioWrapper
 {
+  // Environment constants
   public static var MODIO_ENVIRONMENT_LIVE = 0;
   public static var MODIO_ENVIRONMENT_TEST = 1;
 
+  // Filter constants
   public static var MODIO_SORT_BY_ID            = 0;
   public static var MODIO_SORT_BY_RATING        = 1;
   public static var MODIO_SORT_BY_DATE_LIVE     = 2;
   public static var MODIO_SORT_BY_DATE_UPDATED  = 3;
 
+  // Mod visibility constants
   public static var MODIO_HIDDEN  = 0;
   public static var MODIO_PUBLIC  = 1;
 
+  // Maturity options
+  public static var MODIO_MATURITY_NONE     = 0;
+  public static var MODIO_MATURITY_ALCOHOL  = 1;
+  public static var MODIO_MATURITY_DRUGS    = 2;
+  public static var MODIO_MATURITY_VIOLENCE = 4;
+  public static var MODIO_MATURITY_EXPLICIT = 8;
 
   #if (linux)
     static var ndll_name:String = "modioWrapperLinux_x64";
@@ -175,7 +243,7 @@ class ModioWrapper
   public static var getInstalledMods:Void->Array<Dynamic> = cpp.Lib.load(ndll_name,"modioWrapperGetInstalledMods",0);
   public static var getModState:Int->Int = cpp.Lib.load(ndll_name,"modioWrapperGetModState",1);
   public static var addMod:ModCreator->(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
-  public static var editMod:Int->ModEditor->(Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
+  public static var editMod:Int->ModEditor->(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
   public static var addModfile:Int->ModfileCreator->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
   public static var getAuthenticatedUser:(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAuthenticatedUser", 1);
 }

@@ -1,6 +1,6 @@
 import ModioWrapper;
 
-class Ex06_AutomaticDownloads 
+class Ex05_AutomaticDownloads 
 {
   static function main()
   {
@@ -8,8 +8,8 @@ class Ex06_AutomaticDownloads
     {
       while (true)
       {
-        var download_queue:Array<Dynamic>;
-        download_queue = ModioWrapper.getModDownloadQueue();
+        // The download queue help us tracking the download progress
+        var download_queue:Array<Dynamic> = ModioWrapper.getModDownloadQueue();
         if(download_queue.length > 0)
         {
           trace("=== Download queue ===");

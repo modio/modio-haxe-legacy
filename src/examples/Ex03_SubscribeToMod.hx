@@ -22,6 +22,8 @@ class Ex03_SubscribeToMod
 
     ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
 
+    // Users can subscribe to mods to download and keep them updated
+    // This can be achieved by calling "ModioWrapper.process()" continiously, downloads will occur automatically on the background
     trace("Enter the mod id: ");
     var mod_id:Int = Std.parseInt(Sys.stdin().readLine());
 
