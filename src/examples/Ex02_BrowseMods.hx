@@ -27,7 +27,7 @@ class Ex02_BrowseMods
     var sorting_type = ModioWrapper.MODIO_SORT_BY_RATING;
     var mods_per_page = 4;
     var page = 0;
-    ModioWrapper.getMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int)
+    ModioWrapper.getAllMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int)
     {
       trace("Response code: " + response_code);
       if(response_code == 200)
@@ -36,7 +36,7 @@ class Ex02_BrowseMods
         {
           trace("Id: " + mods[i].id);
           trace("Name: " + mods[i].name);
-          trace("Description: " + mods[i].description + "\n");
+          trace("Description: " + mods[i].description_plaintext + "\n");
         }
         finish();
       }

@@ -17,7 +17,7 @@ void onExchange(void *object, ModioResponse response)
   value ret = val_call1(*(functions_stored[function_number]), alloc_int(response.code));
 }
 
-void onModsGet(void* object, ModioResponse response, ModioMod* mods, u32 mods_size)
+void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods_size)
 {
   int function_number = *((int*)object);
 

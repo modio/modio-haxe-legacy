@@ -36,13 +36,12 @@ class Ex07_EditMod
       // The Mod Editor helps setting up the fields that will be updated
       var mod_editor:ModEditor = new ModEditor();
       mod_editor.setName("Haxe mod edit");
-      mod_creator.setVisible(ModioWrapper.MODIO_PUBLIC);
-      mod_creator.setMaturityOption(ModioWrapper.MODIO_MATURITY_DRUGS | ModioWrapper.MODIO_MATURITY_VIOLENCE);
-      //mod_creator.setNameid("unique-mod-id");
-      mod_creator.setDescription("This is a description from the Haxe wrapper. This shuld be at least 100 characters long. So it must be a long description.");
-      mod_creator.setHomepage("http://haxewrapper.mod.com");
-      mod_creator.setMetadata("testing metadata from haxe wrapper");
-      mod_creator.addTag("Easy");
+      mod_editor.setVisible(ModioWrapper.MODIO_PUBLIC);
+      mod_editor.setMaturityOption(ModioWrapper.MODIO_MATURITY_DRUGS | ModioWrapper.MODIO_MATURITY_VIOLENCE);
+      //mod_editor.setNameid("unique-mod-id");
+      mod_editor.setDescription("This is an edited description from the Haxe wrapper. This shuld be at least 100 characters long. So it must be a long description.");
+      mod_editor.setHomepage("http://edited.mod.com");
+      mod_editor.setMetadata("editing metadata from haxe wrapper");
 
       ModioWrapper.editMod(mod_id, mod_editor, function(response_code:Int, mod:Dynamic)
       {
@@ -54,8 +53,8 @@ class Ex07_EditMod
         {
           trace("Error editing mod");
           trace(response_code);
-          finish();
         }
+        finish();
       });
     }
     wait();

@@ -1,0 +1,95 @@
+{
+    "date_added": 1524951012,
+    "date_live": 1524951033,
+    "date_updated": 1533074355,
+    "description": "<p>This mod description was updated via the SDK examples. This mod description was updated via the SDK examples.</p>",
+    "description_plaintext": "This mod description was updated via the SDK examples. This mod\ndescription was updated via the SDK examples.\n",
+    "game_id": 7,
+    "homepage_url": "http://www.updated.com",
+    "id": 1034,
+    "logo": {
+        "filename": "logo1.png",
+        "original": "https://image.test.mod.io/mods/bdb1/1034/logo1.png",
+        "thumb_1280x720": "https://thumb.test.mod.io/mods/bdb1/1034/crop_1280x720/logo1.png",
+        "thumb_320x180": "https://thumb.test.mod.io/mods/bdb1/1034/crop_320x180/logo1.png",
+        "thumb_640x360": "https://thumb.test.mod.io/mods/bdb1/1034/crop_640x360/logo1.png"
+    },
+    "maturity_option": 0,
+    "media": {
+        "images": null,
+        "sketchfab": null,
+        "youtube": null
+    },
+    "metadata_blob": "Optional updated metadata",
+    "metadata_kvp": null,
+    "modfile": {
+        "changelog": "Stuff was changed on this mod via the examples.",
+        "date_added": 1524951033,
+        "date_scanned": 0,
+        "download": {
+            "binary_url": "https://test.mod.io/mods/file/1060",
+            "date_expires": 1598552027
+        },
+        "filehash": {
+            "md5": "5cb9b14b42154db198675c305e18e895"
+        },
+        "filename": "upload_1034_modfile.zip",
+        "filesize": 9429619,
+        "id": 1060,
+        "metadata_blob": "",
+        "mod_id": 1034,
+        "version": "v1.1.0",
+        "virus_positive": 0,
+        "virus_status": 0,
+        "virustotal_hash": ""
+    },
+    "name": "Mod with modfile 33",
+    "name_id": "example-mod-test3032",
+    "profile_url": "https://flatshot.test.mod.io/example-mod-test3032",
+    "stats": {
+        "date_expires": 1535478903,
+        "downloads_total": 70,
+        "mod_id": 1034,
+        "popularity_rank_position": 3,
+        "popularity_rank_total_mods": 16,
+        "ratings_display_text": "Unrated",
+        "ratings_negative": 0,
+        "ratings_percentage_positive": 0,
+        "ratings_positive": 0,
+        "ratings_total": 0,
+        "ratings_weighted_aggregate": 0.0,
+        "subscribers_total": 1
+    },
+    "status": 1,
+    "submitted_by": {
+        "avatar": {
+            "filename": "ao_profile_square.1.jpg",
+            "original": "https://image.test.mod.io/members/f512/31338/ao_profile_square.1.jpg",
+            "thumb_100x100": "https://thumb.test.mod.io/members/f512/31338/crop_100x100/ao_profile_square.1.jpg",
+            "thumb_50x50": "https://thumb.test.mod.io/members/f512/31338/crop_50x50/ao_profile_square.1.jpg"
+        },
+        "date_online": 1535305510,
+        "id": 31338,
+        "language": "en",
+        "name_id": "turupawn",
+        "profile_url": "https://test.mod.io/members/turupawn",
+        "timezone": "America/Belize",
+        "username": "turupawn"
+    },
+    "summary": "Mod updated via the SDK examples. Mod updated via the SDK examples. Mod updated via the SDK examples. Mod updated via the SDK examples. Mod updated via the SDK examples. Mod updated via the SDK examples.",
+    "tags": [
+        {
+            "date_added": 1524951013,
+            "name": "Easy"
+        },
+        {
+            "date_added": 1524960764,
+            "name": "Hard"
+        },
+        {
+            "date_added": 1524951013,
+            "name": "Medium"
+        }
+    ],
+    "visible": 1
+}

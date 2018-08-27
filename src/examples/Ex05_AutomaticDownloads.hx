@@ -32,6 +32,7 @@ class Ex05_AutomaticDownloads
 
     ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
 
+    // Everytime a mod finished intalling the download listener function will be called
     trace("Listening to mod installs...");
     ModioWrapper.setDownloadListener(function(response_code:Int, mod_id:Int)
     {

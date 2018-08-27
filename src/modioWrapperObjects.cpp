@@ -39,19 +39,25 @@ value getMediaObject(ModioMedia modio_media)
   return media;
 }
 
-value getRatingSummaryObject(ModioRatingSummary modio_rating_summary)
+value getStatsObject(ModioStats modio_stats)
 {
-  value rating_summary = alloc_empty_object();
+  value stats = alloc_empty_object();
 
-  alloc_field(rating_summary, val_id("total_ratings"), alloc_int(modio_rating_summary.total_ratings));
-  alloc_field(rating_summary, val_id("positive_ratings"), alloc_int(modio_rating_summary.positive_ratings));
-  alloc_field(rating_summary, val_id("negative_ratings"), alloc_int(modio_rating_summary.negative_ratings));
-  alloc_field(rating_summary, val_id("percentage_positive"), alloc_int(modio_rating_summary.percentage_positive));
-  alloc_field(rating_summary, val_id("weighted_aggregate"), alloc_int(modio_rating_summary.weighted_aggregate));
-  if(modio_rating_summary.display_text)
-    alloc_field(rating_summary, val_id("display_text"), alloc_string(modio_rating_summary.display_text));
+  alloc_field(stats, val_id("mod_id"), alloc_int(modio_stats.mod_id));
+  alloc_field(stats, val_id("popularity_rank_position"), alloc_int(modio_stats.popularity_rank_position));
+  alloc_field(stats, val_id("popularity_rank_total_mods"), alloc_int(modio_stats.popularity_rank_total_mods));
+  alloc_field(stats, val_id("downloads_total"), alloc_int(modio_stats.downloads_total));
+  alloc_field(stats, val_id("subscribers_total"), alloc_int(modio_stats.subscribers_total));
+  alloc_field(stats, val_id("ratings_total"), alloc_int(modio_stats.ratings_total));
+  alloc_field(stats, val_id("ratings_positive"), alloc_int(modio_stats.ratings_positive));
+  alloc_field(stats, val_id("ratings_negative"), alloc_int(modio_stats.ratings_negative));
+  alloc_field(stats, val_id("ratings_percentage_positive"), alloc_int(modio_stats.ratings_percentage_positive));
+  alloc_field(stats, val_id("ratings_weighted_aggregate"), alloc_float(modio_stats.ratings_weighted_aggregate));
+  if(modio_stats.ratings_display_text)
+    alloc_field(stats, val_id("ratings_display_text"), alloc_string(modio_stats.ratings_display_text));
+  alloc_field(stats, val_id("date_expires"), alloc_float(modio_stats.date_expires));
 
-  return rating_summary;
+  return stats;
 }
 
 value getDownloadObject(ModioDownload modio_download)
@@ -190,6 +196,8 @@ value getModObject(ModioMod modio_mod)
     alloc_field(mod, val_id("summary"), alloc_string(modio_mod.summary));
   if(modio_mod.description)    
     alloc_field(mod, val_id("description"), alloc_string(modio_mod.description));
+  if(modio_mod.description_plaintext)    
+    alloc_field(mod, val_id("description_plaintext"), alloc_string(modio_mod.description_plaintext));
   if(modio_mod.metadata_blob)
     alloc_field(mod, val_id("metadata_blob"), alloc_string(modio_mod.metadata_blob));
   if(modio_mod.profile_url)

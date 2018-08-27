@@ -7,7 +7,7 @@ extern value* upload_listener;
 
 void onEmailRequest(void *object, ModioResponse response);
 void onExchange(void *object, ModioResponse response);
-void onModsGet(void* object, ModioResponse response, ModioMod* mods, u32 mods_size);
+void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods_size);
 void onModSubscribed(void* object, ModioResponse response, ModioMod mod);
 void onModUnsubscribed(void* object, ModioResponse response);
 void onModDownload(u32 response_code, u32 mod_id);

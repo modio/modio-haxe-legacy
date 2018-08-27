@@ -8,7 +8,7 @@
 
 value getTagObject(ModioTag modio_Tag);
 value getMediaObject(ModioMedia modio_media);
-value getRatingSummaryObject(ModioRatingSummary modio_rating_summary);
+value getStatsObject(ModioStats modio_stats);
 value getDownloadObject(ModioDownload modio_download);
 value getFilehashObject(ModioFilehash modio_filehash);
 value getModfileObject(ModioModfile modio_modfile);
