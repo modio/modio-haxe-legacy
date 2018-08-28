@@ -2,3 +2,4 @@ bin/
 !mod.io-sdk-v*/*
 .modio/
 *.obj
+**/.DS_Store
