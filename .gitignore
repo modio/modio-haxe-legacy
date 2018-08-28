@@ -1,4 +1,4 @@
 bin/
-!mod.io-sdk-v0.7.0/*
+!mod.io-sdk-v*/*
 .modio/
 *.obj
