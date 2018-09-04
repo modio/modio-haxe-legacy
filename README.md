@@ -17,7 +17,7 @@ In case you are using OpenFL, take a look at the OpenFL [installation tutorial](
 
 The NDLL acts as a "glue code" between C and Haxe, you write your functions on C and then you can call them on Haxe by using Haxe's [C Foreign Functions Interface](http://old.haxe.org/doc/cpp/ffi). You build the NDLL just like any other shared library on your C++ compiler. Use the corresponing command to build it.
 
-Before starting, make sure you have installed [Haxe](https://haxe.org/download/). Once you finished installed Haxe, install `haxelib` by typing `haxe install hxcpp` on your terminal.
+Before starting, make sure you have installed [Haxe](https://haxe.org/download/). Once you finished installed Haxe, install `haxelib` by typing `haxelib install hxcpp` on your terminal.
 
 ## Visual Studio on Windows
 
