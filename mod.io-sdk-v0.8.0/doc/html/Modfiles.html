@@ -105,8 +105,8 @@
   }
 });</pre></div>
 <h1>
-<a id="user-content-getmodfiles" class="anchor" href="#getmodfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModfiles</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">getModfiles</span>(u32 mod_id, modio::FilterCreator&amp; filter, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Modfile&gt; &amp; modfiles)&gt;&amp; callback);
+<a id="user-content-getallmodfiles" class="anchor" href="#getallmodfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getAllModfiles</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">getAllModfiles</span>(u32 mod_id, modio::FilterCreator&amp; filter, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Modfile&gt; &amp; modfiles)&gt;&amp; callback);
 </pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-modfiles" rel="nofollow">Get All Modfiles</a></p>
 <p>Browse modfiles on mod.io, can be filtered using the <a href='FilterCreator.html'>FilterCreator</a>.</p>
@@ -166,7 +166,7 @@
 <div class="highlight highlight-source-c++"><pre>modio::FilterCreator filter_creator;
 filter_creator.setFilterLimit(<span class="pl-c1">3</span>);
 
-modio_instance.getModfiles(filter_creator, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Modfiles&gt; &amp; modfiles)
+modio_instance.getAllModfiles(filter_creator, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Modfiles&gt; &amp; modfiles)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {

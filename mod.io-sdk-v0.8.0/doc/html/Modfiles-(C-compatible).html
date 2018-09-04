@@ -119,9 +119,9 @@
 
 <span class="pl-en">modioGetModfile</span>(<span class="pl-c1">NULL</span>, mod_id, modfile_id, &amp;onGetModfile);</pre></div>
 <h1>
-<a id="user-content-modiogetmodfiles" class="anchor" href="#modiogetmodfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetModfiles</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetModfiles</span>(<span class="pl-k">void</span>* object, u32 mod_id, ModioFilterCreator filter, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioModfile modfiles[], u32 modfiles_size));</pre></div>
-<p>Wrapped by: [[Modfiles#getmodfiles]]</p>
+<a id="user-content-modiogetallmodfiles" class="anchor" href="#modiogetallmodfiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetAllModfiles</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetAllModfiles</span>(<span class="pl-k">void</span>* object, u32 mod_id, ModioFilterCreator filter, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioModfile modfiles[], u32 modfiles_size));</pre></div>
+<p>Wrapped by: [[Modfiles#getallmodfiles]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-modfiles" rel="nofollow">Get All Modfiles</a></p>
 <p>Browse modfiles on mod.io, can be filtered using the <a href='ModioFilterCreator.html'>ModioFilterCreator</a>.</p>
 <h2>
@@ -193,7 +193,7 @@
 <h2>
 <a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 <div class="highlight highlight-source-c++"><pre>
-<span class="pl-k">void</span> <span class="pl-en">onGetModfiles</span>(<span class="pl-k">void</span>* object, ModioResponse response, ModioModfile modfiles[], u32 modfiles_size)
+<span class="pl-k">void</span> <span class="pl-en">onGetAllModfiles</span>(<span class="pl-k">void</span>* object, ModioResponse response, ModioModfile modfiles[], u32 modfiles_size)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {
@@ -207,7 +207,7 @@ ModioFilterCreator filter;
 <span class="pl-en">modioInitFilter</span>(&amp;filter);
 <span class="pl-en">modioSetFilterLimit</span>(&amp;filter,<span class="pl-c1">3</span>);
 
-<span class="pl-en">modioGetModfiles</span>(<span class="pl-c1">NULL</span>, mod_id, filter, &amp;onGetModfiles);</pre></div>
+<span class="pl-en">modioGetAllModfiles</span>(<span class="pl-c1">NULL</span>, mod_id, filter, &amp;onGetAllModfiles);</pre></div>
 <h1>
 <a id="user-content-modioaddmodfile" class="anchor" href="#modioaddmodfile" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioAddModfile</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioAddModfile</span>(<span class="pl-k">void</span>* object, u32 mod_id, ModioModfileCreator* modfile_creator, <span class="pl-k">void</span> (*callback)

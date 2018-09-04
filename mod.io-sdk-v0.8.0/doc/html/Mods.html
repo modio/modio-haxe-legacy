@@ -39,8 +39,8 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-getmods" class="anchor" href="#getmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getMods</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getMods</span>(modio::FilterCreator&amp; filter_creator, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Mod&gt; &amp; mods)&gt;&amp; callback);</pre></div>
+<a id="user-content-getallmods" class="anchor" href="#getallmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getAllMods</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getAllMods</span>(modio::FilterCreator&amp; filter_creator, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Mod&gt; &amp; mods)&gt;&amp; callback);</pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-mods" rel="nofollow">Get All Mods</a></p>
 <p>Browse mods on mod.io, can be filtered using the <a href='FilterCreator.html'>FilterCreator</a>.</p>
 <h2>
@@ -96,7 +96,7 @@ filter_creator.setFilterLimit(<span class="pl-c1">3</span>);
 filter_creator.addFilterLikeField(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Example Mod<span class="pl-pds">"</span></span>);
 filter_creator.addFilterLikeField(<span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>This mod description was added via the SDK examples. This mod description was added via the SDK examples.<span class="pl-pds">"</span></span>);
 
-modio_instance.getMods(filter_creator, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Mod&gt; &amp; mods)
+modio_instance.getAllMods(filter_creator, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> std::vector&lt;modio::Mod&gt; &amp; mods)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {

@@ -46,22 +46,25 @@
   u32 game_id;
   u32 status;
   u32 visible;
-  <span class="pl-k">long</span> date_added;
-  <span class="pl-k">long</span> date_updated;
-  <span class="pl-k">long</span> date_live;
+  u32 maturity_option;
+  u32 date_added;
+  u32 date_updated;
+  u32 date_live;
   std::string homepage_url;
   std::string name;
   std::string name_id;
   std::string summary;
   std::string description;
+  std::string description_plaintext;
   std::string metadata_blob;
   std::string profile_url;
   Logo logo;
   User submitted_by;
   Modfile modfile;
   Media media;
-  RatingSummary rating_summary;
+  Stats stats;
   std::vector&lt;Tag&gt; tags;
+  std::vector&lt;MetadataKVP&gt; metadata_kvps;
 };</pre></div>
 <p>API schema: <a href="https://docs.mod.io/#mod-object" rel="nofollow">Mod Object</a></p>
 <p>C compatible base object: <a href='ModioMod.html'>ModioMod</a></p>
@@ -92,7 +95,12 @@
 <tr>
 <td>visible</td>
 <td><code>u32</code></td>
-<td>Visibility of the mod. See <a href='Mod-visibility.html'>Mod visibility</a></td>
+<td><a href='Mod-visibility.html'>Mod visibility</a></td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>u32</code></td>
+<td>Mod <a href='Status.html'>Status</a></td>
 </tr>
 <tr>
 <td>date_added</td>
@@ -135,6 +143,11 @@
 <td>Description of the mod</td>
 </tr>
 <tr>
+<td>description_plaintext</td>
+<td><code>std::string</code></td>
+<td>Description of the mod converted into plaintext</td>
+</tr>
+<tr>
 <td>metadata_blob</td>
 <td><code>std::string</code></td>
 <td>Metadata for the mod</td>
@@ -165,14 +178,19 @@
 <td><a href='Media.html'>Media</a> object containing media data</td>
 </tr>
 <tr>
-<td>rating_summary</td>
-<td><code>modio::RatingSummary</code></td>
-<td><a href='RatingSummary.html'>RatingSummary</a> object containing rating data</td>
+<td>stats</td>
+<td><code>modio::Stats</code></td>
+<td><a href='Stats.html'>Stats</a> object containing stats data.</td>
 </tr>
 <tr>
 <td>tags</td>
 <td><code>std::vector&lt;modio::Tag&gt;</code></td>
-<td><a href='Tag.html'>Tag</a> object containing tags data</td>
+<td><a href='Tag.html'>Tag</a> vector containing tags data</td>
+</tr>
+<tr>
+<td>metadata_kvps</td>
+<td><code>std::vector&lt;MetadataKVP&gt;</code></td>
+<td><a href='MetadataKVP.html'>MetadataKVP</a> vector containing metadata key value pairs</td>
 </tr>
 </tbody>
 </table>

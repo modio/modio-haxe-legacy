@@ -39,9 +39,9 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-gettags" class="anchor" href="#gettags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getTags</span>(u32 mod_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, std::vector&lt;modio::Tag&gt; tags)&gt;&amp; callback)</pre></div>
-<p>API endpoint used: <a href="https://docs.mod.io/#get-all-mod-tags" rel="nofollow">Get All Mod Tags</a></p>
+<a id="user-content-getmodtags" class="anchor" href="#getmodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getModTags</span>(u32 mod_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, std::vector&lt;modio::Tag&gt; tags)&gt;&amp; callback)</pre></div>
+<p>API endpoint used: <a href="https://docs.mod.io/#get-mod-tags" rel="nofollow">Get Mod Tags</a></p>
 <p>Returns all the tags corresponding a mod.</p>
 <h2>
 <a id="user-content-function-parameters" class="anchor" href="#function-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
@@ -99,8 +99,8 @@
   }
 });</pre></div>
 <h1>
-<a id="user-content-addtags" class="anchor" href="#addtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>addTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::addTags</span>(u32 mod_id, std::vector&lt;std::string&gt; tags, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response)&gt;&amp; callback)</pre></div>
+<a id="user-content-addmodtags" class="anchor" href="#addmodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>addModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::addModTags</span>(u32 mod_id, std::vector&lt;std::string&gt; tags, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response)&gt;&amp; callback)</pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#add-mod-tag" rel="nofollow">Add Mod Tag</a></p>
 <p>Adds one or more tags to a mod. Tags are supplied as a char* array.</p>
 <h2>
@@ -154,7 +154,7 @@
 <div class="highlight highlight-source-c++"><pre>std::vector&lt;std::string&gt; tags;
 tags.push_back(<span class="pl-s"><span class="pl-pds">"</span>Easy<span class="pl-pds">"</span></span>);
 
-modio_instance.addTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response)
+modio_instance.addModTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">204</span>)
   {
@@ -162,8 +162,8 @@ modio_instance.addTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const<
   }
 });</pre></div>
 <h1>
-<a id="user-content-deletetags" class="anchor" href="#deletetags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>deleteTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::deleteTags</span>(u32 mod_id, std::vector&lt;std::string&gt; tags, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response)&gt;&amp; callback)</pre></div>
+<a id="user-content-deletemodtags" class="anchor" href="#deletemodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>deleteModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::deleteModTags</span>(u32 mod_id, std::vector&lt;std::string&gt; tags, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response)&gt;&amp; callback)</pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#delete-mod-tag" rel="nofollow">Delete Mod Tag</a></p>
 <p>Deletes one or more tags to a mod. Tags are supplied as a char* array.</p>
 <h2>
@@ -217,7 +217,7 @@ modio_instance.addTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const<
 <div class="highlight highlight-source-c++"><pre>std::vector&lt;std::string&gt; tags;
 tags.push_back(<span class="pl-s"><span class="pl-pds">"</span>Easy<span class="pl-pds">"</span></span>);
 
-modio_instance.deleteTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response)
+modio_instance.deleteModTags(requested_mod.id, tags, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">204</span>)
   {

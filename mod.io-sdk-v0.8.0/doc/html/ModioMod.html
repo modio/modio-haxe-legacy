@@ -45,23 +45,27 @@
   u32 game_id;
   u32 status;
   u32 visible;
-  <span class="pl-k">long</span> date_added;
-  <span class="pl-k">long</span> date_updated;
-  <span class="pl-k">long</span> date_live;
+  u32 maturity_option;
+  u32 date_added;
+  u32 date_updated;
+  u32 date_live;
   <span class="pl-k">char</span>* homepage_url;
   <span class="pl-k">char</span>* name;
   <span class="pl-k">char</span>* name_id;
   <span class="pl-k">char</span>* summary;
   <span class="pl-k">char</span>* description;
+  <span class="pl-k">char</span>* description_plaintext;
   <span class="pl-k">char</span>* metadata_blob;
   <span class="pl-k">char</span>* profile_url;
   ModioLogo logo;
   ModioUser submitted_by;
   ModioModfile modfile;
   ModioMedia media;
-  ModioRatingSummary rating_summary;
+  ModioStats stats;
   ModioTag* tags_array;
   u32 tags_array_size;
+  ModioMetadataKVP* metadata_kvp_array;
+  u32 metadata_kvp_array_size;
 };</pre></div>
 <p>API schema: <a href="https://docs.mod.io/#mod-object" rel="nofollow">Mod Object</a></p>
 <p>C++ Wrapper: <a href='Mod.html'>Mod</a></p>
@@ -92,7 +96,12 @@
 <tr>
 <td>visibility</td>
 <td><code>u32</code></td>
-<td>Visibility of the mod. See <a href='Mod-visibility.html'>Mod visibility</a></td>
+<td><a href='Mod-visibility.html'>Mod visibility</a></td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>u32</code></td>
+<td>Mod <a href='Status.html'>Status</a></td>
 </tr>
 <tr>
 <td>date_added</td>
@@ -140,6 +149,11 @@
 <td>Description of the mod</td>
 </tr>
 <tr>
+<td>description plain text</td>
+<td><code>char*</code></td>
+<td>Description of the mod converted to plain text</td>
+</tr>
+<tr>
 <td>metadata_blob</td>
 <td><code>char*</code></td>
 <td>Metadata for the mod</td>
@@ -170,19 +184,29 @@
 <td><a href='ModioMedia.html'>ModioMedia</a> object containing media data</td>
 </tr>
 <tr>
-<td>ratings</td>
-<td><code>ModioRatingSummary</code></td>
-<td><a href='ModioRatingSummary.html'>ModioRatingSummary</a> object containing rating data</td>
+<td>stats</td>
+<td><code>ModioStats</code></td>
+<td><a href='ModioStats.html'>ModioStats</a> object containing stats data</td>
 </tr>
 <tr>
 <td>tags_array</td>
 <td><code>ModioTag*</code></td>
-<td><a href='ModioTag.html'>ModioTag</a> object containing tags data</td>
+<td><a href='ModioTag.html'>ModioTag</a> array containing tags data</td>
 </tr>
 <tr>
 <td>tags_array_size</td>
 <td><code>u32</code></td>
 <td>Size of the tags_array</td>
+</tr>
+<tr>
+<td>metadata_kvp_array</td>
+<td><code>ModioMetadataKVP*</code></td>
+<td><a href='ModioMetadataKVP.html'>ModioMetadataKVP</a> object containing metadata key value pairs</td>
+</tr>
+<tr>
+<td>metadata_kvp_array_size</td>
+<td><code>u32</code></td>
+<td>Size of the metadata_kvp_array</td>
 </tr>
 </tbody>
 </table>

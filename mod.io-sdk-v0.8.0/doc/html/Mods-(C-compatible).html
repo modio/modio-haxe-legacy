@@ -39,9 +39,9 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-modiogetmods" class="anchor" href="#modiogetmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetMods</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetMods</span>(<span class="pl-k">void</span>* object, ModioFilterCreator* filter, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod* mods, u32 mods_size));</pre></div>
-<p>Wrapped by: [[Mods#getmods]]</p>
+<a id="user-content-modiogetallmods" class="anchor" href="#modiogetallmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetAllMods</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetAllMods</span>(<span class="pl-k">void</span>* object, ModioFilterCreator* filter, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod* mods, u32 mods_size));</pre></div>
+<p>Wrapped by: [[Mods#getallmods]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-mods" rel="nofollow">Get All Mods</a></p>
 <p>Browse mods on mod.io, can be filtered using the <a href='ModioFilterCreator.html'>ModioFilterCreator</a>.</p>
 <h2>
@@ -108,7 +108,7 @@
 <h2>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 <div class="highlight highlight-source-c++"><pre>
-<span class="pl-k">void</span> <span class="pl-en">onModsGet</span>(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod* mods, u32 mods_size)
+<span class="pl-k">void</span> <span class="pl-en">onGetAllMods</span>(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod* mods, u32 mods_size)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {
@@ -122,7 +122,7 @@ ModioFilterCreator filter;
 <span class="pl-en">modioInitFilter</span>(&amp;filter);
 <span class="pl-en">modioSetFilterLimit</span>(&amp;filter,<span class="pl-c1">3</span>);
 
-<span class="pl-en">modioGetMods</span>(<span class="pl-c1">NULL</span>,filter, &amp;onModsGet);</pre></div>
+<span class="pl-en">modioGetAllMods</span>(<span class="pl-c1">NULL</span>,filter, &amp;onGetAllMods);</pre></div>
 <h1>
 <a id="user-content-modiogetusermods" class="anchor" href="#modiogetusermods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetUserMods</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetUserMods</span>(<span class="pl-k">void</span>* object, ModioFilterCreator filter, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod mods[], u32 mods_size));
@@ -211,8 +211,8 @@ ModioFilterCreator filter;
 <span class="pl-en">modioGetUserMods</span>(<span class="pl-c1">NULL</span>,filter, &amp;onModsGet);</pre></div>
 <h1>
 <a id="user-content-modiogetmod" class="anchor" href="#modiogetmod" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetMod</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetMod</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod mods));</pre></div>
-<p>Wrapped by: [[Mods#getusermods]]</p>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetMod</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMod mod));</pre></div>
+<p>Wrapped by: [[Mods#getmod]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-mod" rel="nofollow">Get Mod</a></p>
 <p>Get a mod by providing its id.</p>
 <h2>

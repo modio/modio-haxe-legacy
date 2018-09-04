@@ -39,8 +39,8 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-getmetadatakvp" class="anchor" href="#getmetadatakvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getMetadataKVP</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getMetadataKVP</span>(u32 mod_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, std::vector&lt;modio::MetadataKVP&gt; metadata_kvp)&gt;&amp; callback);</pre></div>
+<a id="user-content-getallmetadatakvp" class="anchor" href="#getallmetadatakvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getAllMetadataKVP</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::getAllMetadataKVP</span>(u32 mod_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response&amp; response, std::vector&lt;modio::MetadataKVP&gt; metadata_kvp)&gt;&amp; callback);</pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-mod-kvp-metadata" rel="nofollow">Get All Mod KVP Metadata</a></p>
 <p>Returns a vector containing all corresponding mod's <a href='MetadataKVP.html'>MetadataKVP</a> objects.</p>
 <h2>
@@ -91,7 +91,7 @@
 </table>
 <h2>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
-<div class="highlight highlight-source-c++"><pre>modio_instance.getMetadataKVP(mod_id, [&amp;](<span class="pl-k">const</span> modio::Response &amp;response, std::vector&lt;modio::MetadataKVP&gt; metadata_kvp) {
+<div class="highlight highlight-source-c++"><pre>modio_instance.getAllMetadataKVP(mod_id, [&amp;](<span class="pl-k">const</span> modio::Response &amp;response, std::vector&lt;modio::MetadataKVP&gt; metadata_kvp) {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {
     <span class="pl-c"><span class="pl-c">//</span>Metadata KVP successfully retrieved</span>

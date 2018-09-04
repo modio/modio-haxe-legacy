@@ -129,13 +129,94 @@ ModioFilterCreator filter;
 
 <span class="pl-en">modioGetAllModComments</span>(<span class="pl-c1">NULL</span>, mod_id, filter, &amp;onGetAllModComments);</pre></div>
 <h1>
+<a id="user-content-modiogetmodcomment" class="anchor" href="#modiogetmodcomment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetModComment</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetModComment</span>(<span class="pl-k">void</span>* object, u32 mod_id, u32 comment_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioComment comment));</pre></div>
+<p>Wrapped by: [[Mods#getmodcomment]]</p>
+<p>API endpoint used: <a href="https://docs.mod.io/#get-mod-comment" rel="nofollow">Get Mod</a></p>
+<p>Get a comment by providing its id.</p>
+<h2>
+<a id="user-content-function-parameters-1" class="anchor" href="#function-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td><code>void*</code></td>
+<td>Context parameter.</td>
+</tr>
+<tr>
+<td>mod_id</td>
+<td><code>u32</code></td>
+<td>Mod's unique id.</td>
+</tr>
+<tr>
+<td>comment_id</td>
+<td><code>u32</code></td>
+<td>Comment's unique id.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>void (*callback)(void* object, ModioResponse response, ModioComment comment)</code></td>
+<td>Function called once the process finished.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="user-content-callback-parameters-1" class="anchor" href="#callback-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object</td>
+<td><code>void*</code></td>
+<td>Context parameter.</td>
+</tr>
+<tr>
+<td>response</td>
+<td><code>ModioResponse</code></td>
+<td><a href='ModioResponse.html'>ModioResponse</a> object that contains the mod.io response status.</td>
+</tr>
+<tr>
+<td>comment</td>
+<td><code>ModioComment</code></td>
+<td><a href='ModioComment.html'>ModioComment</a> object returned.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+<div class="highlight highlight-source-c++"><pre>
+<span class="pl-k">void</span> <span class="pl-en">onGetModComment</span>(<span class="pl-k">void</span>* object, ModioResponse response, ModioComment comment)
+{
+  <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
+  {
+    <span class="pl-c"><span class="pl-c">//</span>Comment retrieved successfully</span>
+  }
+}
+
+[...]
+
+<span class="pl-en">modioGetMod</span>(<span class="pl-c1">NULL</span>, mod_id, comment, &amp;onGetModComment);</pre></div>
+<h1>
 <a id="user-content-modiodeletemodcomment" class="anchor" href="#modiodeletemodcomment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioDeleteModComment</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioDeleteModComment</span>(<span class="pl-k">void</span>* object, u32 mod_id, u32 comment_id, <span class="pl-k">void</span>(*callback)(<span class="pl-k">void</span>* object, ModioResponse response));</pre></div>
 <p>Wrapped by: [[Comments#modiodeletemodcomment]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#delete-mod-comment" rel="nofollow">Delete Mod Comment</a></p>
 <p>Delete a comment from a mod profile.</p>
 <h2>
-<a id="user-content-function-parameters-1" class="anchor" href="#function-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
+<a id="user-content-function-parameters-2" class="anchor" href="#function-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
 <table>
 <thead>
 <tr>
@@ -168,7 +249,7 @@ ModioFilterCreator filter;
 </tbody>
 </table>
 <h2>
-<a id="user-content-callback-parameters-1" class="anchor" href="#callback-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
+<a id="user-content-callback-parameters-2" class="anchor" href="#callback-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
 <table>
 <thead>
 <tr>
@@ -191,7 +272,7 @@ ModioFilterCreator filter;
 </tbody>
 </table>
 <h2>
-<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+<a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onDeleteModComment</span>(<span class="pl-k">void</span>* object, ModioResponse response)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)

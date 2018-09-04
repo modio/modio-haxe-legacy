@@ -39,9 +39,9 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-modiogetmetadatakvp" class="anchor" href="#modiogetmetadatakvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetMetadataKVP</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetMetadataKVP</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMetadataKVP* metadata_kvp_array, u32 metadata_kvp_array_size));</pre></div>
-<p>Wrapped by: [[Metadata-key-value-pairs#getmetadatakvp]]</p>
+<a id="user-content-modiogetallmetadatakvp" class="anchor" href="#modiogetallmetadatakvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetAllMetadataKVP</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetAllMetadataKVP</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, ModioMetadataKVP* metadata_kvp_array, u32 metadata_kvp_array_size));</pre></div>
+<p>Wrapped by: [[Metadata-key-value-pairs#getallmetadatakvp]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#get-all-mod-kvp-metadata" rel="nofollow">Get All Mod KVP Metadata</a></p>
 <p>Returns an array containing all corresponding mod's <a href='ModioMetadataKVP.html'>ModioMetadataKVP</a> objects.</p>
 <h2>
@@ -107,7 +107,7 @@
 </table>
 <h2>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onGetMetadataKVP</span>(<span class="pl-k">void</span> *object, ModioResponse response, ModioMetadataKVP *metadata_kvp_array, u32 metadata_kvp_array_size)
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onGetAllMetadataKVP</span>(<span class="pl-k">void</span> *object, ModioResponse response, ModioMetadataKVP *metadata_kvp_array, u32 metadata_kvp_array_size)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {
@@ -117,7 +117,7 @@
 
 [...]
 
-<span class="pl-en">modioGetMetadataKVP</span>(<span class="pl-c1">NULL</span>, mod_id, &amp;onGetMetadataKVP);</pre></div>
+<span class="pl-en">modioGetAllMetadataKVP</span>(<span class="pl-c1">NULL</span>, mod_id, &amp;onGetAllMetadataKVP);</pre></div>
 <h1>
 <a id="user-content-modioaddmetadatakvp" class="anchor" href="#modioaddmetadatakvp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioAddMetadataKVP</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioAddMetadataKVP</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">char</span>** metadata_kvp_array, u32 metadata_kvp_array_size, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response));</pre></div>

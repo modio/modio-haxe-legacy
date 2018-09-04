@@ -188,12 +188,12 @@
 <a id="user-content-examples-6" class="anchor" href="#examples-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 <div class="highlight highlight-source-c++"><pre>std::list&lt;modio::QueuedModDownload *&gt; mod_download_queue = modio_instance.getModDownloadQueue();</pre></div>
 <h1>
-<a id="user-content-getinstalledmods" class="anchor" href="#getinstalledmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getInstalledMods</h1>
-<div class="highlight highlight-source-c++"><pre>std::vector&lt;modio::InstalledMod&gt; <span class="pl-en">Instance::getInstalledMods</span>();</pre></div>
+<a id="user-content-getallinstalledmods" class="anchor" href="#getallinstalledmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getAllInstalledMods</h1>
+<div class="highlight highlight-source-c++"><pre>std::vector&lt;modio::InstalledMod&gt; <span class="pl-en">Instance::getAllInstalledMods</span>();</pre></div>
 <p>Returns a <code>std::vector</code> of <a href='InstalledMod.html'>InstalledMod</a> objects which represents the mods that are locally installed.</p>
 <h2>
 <a id="user-content-examples-7" class="anchor" href="#examples-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
-<div class="highlight highlight-source-c++"><pre>std::vector installed_mods = modio_instance.getInstalledMods();</pre></div>
+<div class="highlight highlight-source-c++"><pre>std::vector installed_mods = modio_instance.getAllInstalledMods();</pre></div>
 <h1>
 <a id="user-content-getmodstate" class="anchor" href="#getmodstate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModState</h1>
 <div class="highlight highlight-source-c++"><pre>u32 <span class="pl-en">Instance::getModState</span>(u32 mod_id);</pre></div>

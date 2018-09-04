@@ -53,8 +53,9 @@
   std::string version;
   std::string virustotal_hash;
   std::string changelog;
-  modio::Download download;
+  std::string metadata_blob;
   modio::Filehash filehash;
+  modio::Download download;
 };</pre></div>
 <p>API schema: <a href="https://docs.mod.io/#modfile-object" rel="nofollow">Modfile Object</a></p>
 <p>C compatible base object: <a href='ModioModfile.html'>ModioModfile</a></p>
@@ -123,14 +124,19 @@
 <td>List of all changes in this file release</td>
 </tr>
 <tr>
-<td>download</td>
-<td><code>modio::Download</code></td>
-<td><a href='Download.html'>Download</a> object</td>
+<td>metadata_blob</td>
+<td><code>std::string</code></td>
+<td>Metadata stored by the game developer for this file.</td>
 </tr>
 <tr>
 <td>filehash</td>
 <td><code>modio::Filehash</code></td>
 <td><a href='Filehash.html'>Filehash</a> object</td>
+</tr>
+<tr>
+<td>download</td>
+<td><code>modio::Download</code></td>
+<td><a href='Download.html'>Download</a> object</td>
 </tr>
 </tbody>
 </table>

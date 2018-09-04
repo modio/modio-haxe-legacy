@@ -45,15 +45,16 @@
   u32 mod_id;
   u32 virus_status;
   u32 virus_positive;
-  <span class="pl-k">long</span> date_added;
-  <span class="pl-k">long</span> date_scanned;
+  u32 date_added;
+  u32 date_scanned;
   <span class="pl-k">long</span> filesize;
   <span class="pl-k">char</span>* filename;
   <span class="pl-k">char</span>* version;
   <span class="pl-k">char</span>* virustotal_hash;
   <span class="pl-k">char</span>* changelog;
-  <span class="pl-k">char</span>* download_url;
+  <span class="pl-k">char</span>* metadata_blob;
   ModioFilehash filehash;
+  ModioDownload download;
 };</pre></div>
 <p>API schema: <a href="https://docs.mod.io/#modfile-object" rel="nofollow">Modfile Object</a></p>
 <p>C++ Wrapper: <a href='Modfile.html'>Modfile</a></p>
@@ -122,14 +123,19 @@
 <td>List of all changes in this file release</td>
 </tr>
 <tr>
-<td>download_url</td>
+<td>metadata_blob</td>
 <td><code>char*</code></td>
-<td>Link to download the file from the mod.io CDN</td>
+<td>Metadata stored by the game developer for this file.</td>
 </tr>
 <tr>
 <td>filehash</td>
 <td><code>ModioFilehash</code></td>
 <td><a href='ModioFilehash.html'>ModioFilehash</a> object</td>
+</tr>
+<tr>
+<td>download</td>
+<td><code>ModioDownload</code></td>
+<td><a href='ModioDownload.html'>ModioDownload</a> object</td>
 </tr>
 </tbody>
 </table>

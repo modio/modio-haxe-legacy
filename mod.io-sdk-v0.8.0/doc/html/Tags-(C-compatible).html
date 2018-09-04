@@ -39,10 +39,10 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-modiogettags" class="anchor" href="#modiogettags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
-<p>Wrapped by: [[Tags#modiogettags]]</p>
-<p>API endpoint used: <a href="https://docs.mod.io/#get-all-mod-tags" rel="nofollow">Get All Mod Tags</a></p>
+<a id="user-content-modiogetmodtags" class="anchor" href="#modiogetmodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetModTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
+<p>Wrapped by: [[Tags#getmodtags]]</p>
+<p>API endpoint used: <a href="https://docs.mod.io/#get-mod-tags" rel="nofollow">Get Mod Tags</a></p>
 <p>Returns all the tags corresponding a mod.</p>
 <h2>
 <a id="user-content-function-parameters" class="anchor" href="#function-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
@@ -112,7 +112,7 @@
 </table>
 <h2>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onGetTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size)
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onGetModTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
   {
@@ -122,11 +122,11 @@
 
 [...]
 
-<span class="pl-en">modioGetTags</span>(<span class="pl-c1">NULL</span>, mod.id, &amp;onGetTags);</pre></div>
+<span class="pl-en">modioGetModTags</span>(<span class="pl-c1">NULL</span>, mod.id, &amp;onGetModTags);</pre></div>
 <h1>
-<a id="user-content-modioaddtags" class="anchor" href="#modioaddtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioAddTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioAddTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">char</span>** tags_array, u32 tags_array_size, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
-<p>Wrapped by: [[Tags#modioaddtags]]</p>
+<a id="user-content-modioaddmodtags" class="anchor" href="#modioaddmodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioAddModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioAddModTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">char</span>** tags_array, u32 tags_array_size, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
+<p>Wrapped by: [[Tags#addmodtags]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#add-mod-tag" rel="nofollow">Add Mod Tag</a></p>
 <p>Adds one or more tags to a mod. Tags are supplied as a char* array.</p>
 <h2>
@@ -207,7 +207,7 @@
 </table>
 <h2>
 <a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onAddTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id)
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">onAddModTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">201</span>)
   {
@@ -221,11 +221,11 @@
 tags_array[<span class="pl-c1">0</span>] = (<span class="pl-k">char</span>*) malloc(<span class="pl-c1">50</span>);
 <span class="pl-en">strcpy</span>(tags_array[<span class="pl-c1">0</span>], <span class="pl-s"><span class="pl-pds">"</span>Hard<span class="pl-cce">\0</span><span class="pl-pds">"</span></span>);
 
-<span class="pl-en">modioAddTags</span>(<span class="pl-c1">NULL</span>, mod.id, (<span class="pl-k">char</span>**)tags_array, 1, &amp;onAddTags);</pre></div>
+<span class="pl-en">modioAddModTags</span>(<span class="pl-c1">NULL</span>, mod.id, (<span class="pl-k">char</span>**)tags_array, 1, &amp;onAddModTags);</pre></div>
 <h1>
-<a id="user-content-modiodeletetags" class="anchor" href="#modiodeletetags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioDeleteTags</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioDeleteTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">char</span>** tags_array, u32 tags_array_size, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
-<p>Wrapped by: [[Tags#modiodeletetags]]</p>
+<a id="user-content-modiodeletemodtags" class="anchor" href="#modiodeletemodtags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioDeleteModTags</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioDeleteModTags</span>(<span class="pl-k">void</span>* object, u32 mod_id, <span class="pl-k">char</span>** tags_array, u32 tags_array_size, <span class="pl-k">void</span> (*callback)(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id, ModioTag* tags_array, u32 tags_array_size));</pre></div>
+<p>Wrapped by: [[Tags#deletemodtags]]</p>
 <p>API endpoint used: <a href="https://docs.mod.io/#delete-mod-tag" rel="nofollow">Delete Mod Tag</a></p>
 <p>Deletes one or more tags to a mod. Tags are supplied as a char* array.</p>
 <h2>
@@ -307,7 +307,7 @@ tags_array[<span class="pl-c1">0</span>] = (<span class="pl-k">char</span>*) mal
 <h2>
 <a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 <div class="highlight highlight-source-c++"><pre>
-<span class="pl-k">void</span> <span class="pl-en">onDeleteTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id)
+<span class="pl-k">void</span> <span class="pl-en">onDeleteModTags</span>(<span class="pl-k">void</span>* object, ModioResponse response, u32 mod_id)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">201</span>)
   {
@@ -321,7 +321,7 @@ tags_array[<span class="pl-c1">0</span>] = (<span class="pl-k">char</span>*) mal
 tags_array[<span class="pl-c1">0</span>] = (<span class="pl-k">char</span>*) malloc(<span class="pl-c1">50</span>);
 <span class="pl-en">strcpy</span>(tags_array[<span class="pl-c1">0</span>], <span class="pl-s"><span class="pl-pds">"</span>Hard<span class="pl-cce">\0</span><span class="pl-pds">"</span></span>);
 
-<span class="pl-en">modioDeleteTags</span>(<span class="pl-c1">NULL</span>, mod.id, (<span class="pl-k">char</span>**)tags_array, 1, &amp;onDeleteTags);</pre></div>
+<span class="pl-en">modioDeleteModTags</span>(<span class="pl-c1">NULL</span>, mod.id, (<span class="pl-k">char</span>**)tags_array, 1, &amp;onDeleteModTags);</pre></div>
 
               </article>
             </div>

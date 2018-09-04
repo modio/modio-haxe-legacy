@@ -107,12 +107,77 @@ modio_instance.getAllModComments(mod_id, filter, [&amp;](<span class="pl-k">cons
   }
 });</pre></div>
 <h1>
+<a id="user-content-getmodcomment" class="anchor" href="#getmodcomment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModComment</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">getModComment</span>(u32 mod_id, u32 comment_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response &amp;response, <span class="pl-k">const</span> modio::Comment &amp;comment)&gt; &amp;callback);</pre></div>
+<p>API endpoint used: <a href="https://docs.mod.io/#get-mod-comment" rel="nofollow">Get Mod Comment</a></p>
+<p>Get a mod comment by providing it's id.</p>
+<h2>
+<a id="user-content-function-parameters-1" class="anchor" href="#function-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mod_id</td>
+<td><code>u32</code></td>
+<td>Mod's unique identifier.</td>
+</tr>
+<tr>
+<td>comment_id</td>
+<td><code>u32</code></td>
+<td>Comment's unique identifier.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>const std::function&lt;void(const modio::Response&amp; response, const modio::Comment&amp; comment)&gt;&amp;</code></td>
+<td>Function called once the process finished.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="user-content-callback-parameters-1" class="anchor" href="#callback-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>response</td>
+<td><code>const modio::Response&amp;</code></td>
+<td><a href='Response.html'>Response</a> object that contains the mod.io response status.</td>
+</tr>
+<tr>
+<td>mod</td>
+<td><code>const modio::Mod&amp;</code></td>
+<td>Returned mod.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+<div class="highlight highlight-source-c++"><pre>modio_instance.getModComment(mod_id, comment_id, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response, <span class="pl-k">const</span> modio::Comment&amp; comment)
+{
+  <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">200</span>)
+  {
+    <span class="pl-c"><span class="pl-c">//</span>Mod comment successfully retrieved</span>
+  }
+});</pre></div>
+<h1>
 <a id="user-content-deletemodcomment" class="anchor" href="#deletemodcomment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>deleteModComment</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::deleteModComment</span>(u32 mod_id, u32 comment_id, <span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(<span class="pl-k">const</span> modio::Response &amp;response)&gt;&amp; callback);</pre></div>
 <p>API endpoint used: <a href="https://docs.mod.io/#delete-mod-comment" rel="nofollow">Delete Mod Comment</a></p>
 <p>Delete a comment from a mod profile.</p>
 <h2>
-<a id="user-content-function-parameters-1" class="anchor" href="#function-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
+<a id="user-content-function-parameters-2" class="anchor" href="#function-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
 <table>
 <thead>
 <tr>
@@ -140,7 +205,7 @@ modio_instance.getAllModComments(mod_id, filter, [&amp;](<span class="pl-k">cons
 </tbody>
 </table>
 <h2>
-<a id="user-content-callback-parameters-1" class="anchor" href="#callback-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
+<a id="user-content-callback-parameters-2" class="anchor" href="#callback-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Callback parameters</h2>
 <table>
 <thead>
 <tr>
@@ -158,7 +223,7 @@ modio_instance.getAllModComments(mod_id, filter, [&amp;](<span class="pl-k">cons
 </tbody>
 </table>
 <h2>
-<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+<a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 <div class="highlight highlight-source-c++"><pre>modio_instance.deleteModComment(mod_id, comment_id, [&amp;](<span class="pl-k">const</span> modio::Response&amp; response)
 {
   <span class="pl-k">if</span>(response.<span class="pl-smi">code</span> == <span class="pl-c1">204</span>)

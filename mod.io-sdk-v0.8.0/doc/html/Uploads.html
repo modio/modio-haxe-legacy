@@ -39,7 +39,7 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
-<a id="user-content-setdownloadlistener" class="anchor" href="#setdownloadlistener" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>setDownloadListener</h1>
+<a id="user-content-setuploadlistener" class="anchor" href="#setuploadlistener" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>setUploadListener</h1>
 <div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">Instance::setUploadListener</span>(<span class="pl-k">const</span> std::function&lt;<span class="pl-k">void</span>(u32 response_code, u32 mod_id)&gt; &amp;callback);</pre></div>
 <p>Registers a function to be called every time a modfile upload finishes.</p>
 <h2>
@@ -92,7 +92,7 @@
   }
 });</pre></div>
 <h1>
-<a id="user-content-getmoddownloadqueue" class="anchor" href="#getmoddownloadqueue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModDownloadQueue</h1>
+<a id="user-content-getmoduploadqueue" class="anchor" href="#getmoduploadqueue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>getModUploadQueue</h1>
 <div class="highlight highlight-source-c++"><pre>std::list&lt;QueuedModfileUpload *&gt; <span class="pl-en">Instance::getModfileUploadQueue</span>();</pre></div>
 <p>Returns a <code>std::list</code> of <a href='QueuedModfileUpload.html'>QueuedModfileUpload</a> objects which represents the mods that are currently queued to be uploaded.</p>
 <h2>

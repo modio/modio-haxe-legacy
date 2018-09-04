@@ -232,17 +232,17 @@ ModioQueuedModDownload *download_queue = malloc(queue_size * <span class="pl-k">
 
 <span class="pl-en">free</span>(download_queue);</pre></div>
 <h1>
-<a id="user-content-modiogetinstalledmodscount" class="anchor" href="#modiogetinstalledmodscount" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetInstalledModsCount</h1>
-<div class="highlight highlight-source-c++"><pre>u32 <span class="pl-en">modioGetInstalledModsCount</span>();</pre></div>
-<p>C++ wrapper: [[Downloads#getinstalledmodssize]]</p>
+<a id="user-content-modiogetallinstalledmodscount" class="anchor" href="#modiogetallinstalledmodscount" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetAllInstalledModsCount</h1>
+<div class="highlight highlight-source-c++"><pre>u32 <span class="pl-en">modioGetAllInstalledModsCount</span>();</pre></div>
+<p>C++ wrapper: [[Downloads#getallinstalledmodssize]]</p>
 <p>Returns the amounts of mods installed locally.</p>
 <h2>
 <a id="user-content-examples-8" class="anchor" href="#examples-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
-<div class="highlight highlight-source-c++"><pre>u32 installed_mods_size = modioGetInstalledModsCount();</pre></div>
+<div class="highlight highlight-source-c++"><pre>u32 installed_mods_size = modioGetAllInstalledModsCount();</pre></div>
 <h1>
-<a id="user-content-modiogetinstalledmods" class="anchor" href="#modiogetinstalledmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetInstalledMods</h1>
-<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetInstalledMods</span>(ModioInstalledMod* installed_mods);</pre></div>
-<p>C++ wrapper: [[Downloads#getinstalledmods]]</p>
+<a id="user-content-modiogetallinstalledmods" class="anchor" href="#modiogetallinstalledmods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modioGetAllInstalledMods</h1>
+<div class="highlight highlight-source-c++"><pre><span class="pl-k">void</span> <span class="pl-en">modioGetAllInstalledMods</span>(ModioInstalledMod* installed_mods);</pre></div>
+<p>C++ wrapper: [[Downloads#getallinstalledmods]]</p>
 <p>Returns an array of <a href='ModioInstalledMod.html'>ModioInstalledMod</a> objects which represents the mods that are locally installed.</p>
 <h2>
 <a id="user-content-function-parameters-5" class="anchor" href="#function-parameters-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Function parameters</h2>
@@ -264,9 +264,9 @@ ModioQueuedModDownload *download_queue = malloc(queue_size * <span class="pl-k">
 </table>
 <h2>
 <a id="user-content-examples-9" class="anchor" href="#examples-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
-<div class="highlight highlight-source-c++"><pre>u32 installed_mods_size = modioGetInstalledModsCount();
+<div class="highlight highlight-source-c++"><pre>u32 installed_mods_size = modioGetallInstalledModsCount();
 ModioInstalledMod* installed_mods = malloc(installed_mods_size * <span class="pl-k">sizeof</span>(*installed_mods));
-<span class="pl-en">modioGetInstalledMods</span>(installed_mods);
+<span class="pl-en">modioGetallInstalledMods</span>(installed_mods);
 
 [...]
 
