@@ -190,26 +190,94 @@ class ModfileCreator
 
 class ModioWrapper
 {
+  // API access option constants
+  public static var MODIO_ALL_OPTIONS_DISABLED                  = 0;
+  public static var MODIO_ALLOW_ACCESS_FROM_3RD_PARTIES         = 1;
+  public static var MODIO_ALLOW_MODS_TO_BE_DOWNLOADED_DIRECTLY  = 2;
+
+  // Community option constants
+  //public static var MODIO_ALL_OPTIONS_DISABLED      = 0;
+  public static var MODIO_DISCUSSION_BOARD_ENABLED  = 1;
+  public static var MODIO_GUIDES_AND_NEWS_ENABLED   = 2;
+
+  // Curation option constants
+  public static var MODIO_NO_CURATION   = 0;
+  public static var MODIO_PAID_CURATION = 1;
+  public static var MODIO_FULL_CURATION = 2;
+
+  // Debug level constants
+  public static var MODIO_DEBUGLEVEL_LOG      = 2;
+  public static var MODIO_DEBUGLEVEL_WARNING  = 1;
+  public static var MODIO_DEBUGLEVEL_ERROR    = 0;
+
   // Environment constants
   public static var MODIO_ENVIRONMENT_LIVE = 0;
   public static var MODIO_ENVIRONMENT_TEST = 1;
 
-  // Filter constants
+  // Event type constants
+  public static var EVENT_UNDEFINED               = 0;
+  public static var EVENT_MODFILE_CHANGED         = 1;
+  public static var EVENT_MOD_AVAILABLE           = 2;
+  public static var EVENT_MOD_UNAVAILABLE         = 3;
+  public static var EVENT_MOD_EDITED              = 4;
+  public static var MODIO_EVENT_USER_TEAM_JOIN    = 5;
+  public static var MODIO_EVENT_USER_TEAM_LEAVE   = 6;
+  public static var MODIO_EVENT_USER_SUBSCRIBE    = 7;
+  public static var MODIO_EVENT_USER_UNSUBSCRIBE  = 8;
+
+  // Filter type constants
   public static var MODIO_SORT_BY_ID            = 0;
   public static var MODIO_SORT_BY_RATING        = 1;
   public static var MODIO_SORT_BY_DATE_LIVE     = 2;
   public static var MODIO_SORT_BY_DATE_UPDATED  = 3;
-
-  // Mod visibility constants
-  public static var MODIO_HIDDEN  = 0;
-  public static var MODIO_PUBLIC  = 1;
-
-  // Maturity options
+  
+  // Maturity option constants
   public static var MODIO_MATURITY_NONE     = 0;
   public static var MODIO_MATURITY_ALCOHOL  = 1;
   public static var MODIO_MATURITY_DRUGS    = 2;
   public static var MODIO_MATURITY_VIOLENCE = 4;
   public static var MODIO_MATURITY_EXPLICIT = 8;
+
+  // Mod state constants
+  public static var MODIO_MOD_UNDEFINED               = 0;
+  public static var MODIO_MOD_NOT_INSTALLED           = 1;
+  public static var MODIO_MOD_QUEUED                  = 2;
+  public static var MODIO_MOD_STARTING_DOWNLOAD       = 3;
+  public static var MODIO_MOD_DOWNLOADING             = 4;
+  public static var MODIO_MOD_PAUSING                 = 5;
+  public static var MODIO_MOD_PAUSED                  = 6;
+  public static var MODIO_MOD_EXTRACTING              = 7;
+  public static var MODIO_MOD_INSTALLED               = 8;
+  public static var MODIO_PRIORITIZING_OTHER_DOWNLOAD = 9;
+
+  // Mod visibility constants
+  public static var MODIO_HIDDEN  = 0;
+  public static var MODIO_PUBLIC  = 1;
+
+  // Presentation option constants
+  public static var MODIO_GRID_VIEW   = 0;
+  public static var MODIO_TABLE_VIEW  = 1;
+
+  // Revenue option constants
+  //public static var MODIO_ALL_OPTIONS_DISABLED                      = 0;
+  public static var MODIO_ALLOW_MODS_TO_BE_SOLD                     = 1;
+  public static var MODIO_ALLOW_MODS_TO_RECEIVE_DONATIONS           = 2;
+  public static var MODIO_ALLOW_MODS_TO_BE_TRADED                   = 4;
+  public static var MODIO_ALLOW_MODS_TO_CONTROL_SUPPLY_AND_SCARCITY = 8;
+
+  // Report type constants
+  public static var MODIO_GENERIC_REPORT  = 0;
+  public static var MODIO_DMCA_REPORT     = 1;
+
+  //Status constants
+  public static var MODIO_NOT_ACCEPTED  = 0;
+  public static var MODIO_ACCEPTED      = 1;
+  public static var MODIO_ARCHIVED      = 2;
+  public static var MODIO_DELETED       = 3;
+
+  //Submission option constants
+  public static var MODIO_MOD_UPLOADS_CONTROLED     = 0;
+  public static var MODIO_MOD_UPLOADS_FROM_ANYWHERE = 1;
 
   #if (linux)
     static var ndll_name:String = "modioWrapperLinux_x64";
