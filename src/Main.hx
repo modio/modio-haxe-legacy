@@ -2,6 +2,44 @@ import ModioWrapper;
 
 class Main 
 {
+  static function downloadProgressString()
+  {
+    var installed_mods:Array<Dynamic>;
+    installed_mods = ModioWrapper.getInstalledMods();
+
+    var download_queue:Array<Dynamic>;
+    download_queue = ModioWrapper.getModDownloadQueue();
+
+    var result:String = "";
+    if(installed_mods.length == 1)
+    {
+      result += installed_mods.length + " mod installed through mod.io. ";
+    }else
+    {
+      result += installed_mods.length + " mods installed through mod.io. ";
+    }
+
+    if(download_queue.length > 0)
+    {
+      result += download_queue.length + " mods downloading. ";
+      var current_download = download_queue[0];
+      
+      if(current_download.current_progress != 0)
+      {
+        var progress = current_download.current_progress / current_download.total_size;
+        progress = Math.round( progress * 100 * Math.pow(10, 2) ) / Math.pow(10, 2);
+        result += current_download.current_progress + "/" + current_download.total_size + " (" + progress + "%)";
+      }else
+      {
+        result += "Initializing download, please wait.";
+      }
+    }else
+    {
+      result += "Install mods by subscribing to them.";
+    }
+    return result;
+  }
+
   static function onEmailExchange(response_code:Int)
   {
     if (response_code == 200)
@@ -22,7 +60,7 @@ class Main
     {
       trace("Email request successful");
       
-      trace("Please enter the 5 digit security code:");
+      trace("Please enter the 5 digit security code sent to your email:");
       var security_code = Sys.stdin().readLine();
       ModioWrapper.emailExchange(security_code, onEmailExchange);
     }
@@ -70,23 +108,7 @@ class Main
 
     while (true)
     {
-      var download_queue:Array<Dynamic>;
-      download_queue = ModioWrapper.getModDownloadQueue();
-      if(download_queue.length > 0)
-      {
-        trace("=== Download queue ===");
-        trace("Queue size: " + download_queue.length);
-        for(i in 0...download_queue.length)
-        {
-          trace("[" + i + "]: " + download_queue[i].mod.name);
-          if(download_queue[i].current_progress > 0)
-          {
-            var progress = download_queue[i].current_progress / download_queue[i].total_size;
-            progress = Math.round( progress * 100 * Math.pow(10, 2) ) / Math.pow(10, 2);
-            trace("Progress: " + download_queue[i].current_progress + "/" + download_queue[i].total_size + "(" + progress + "%)");
-          }
-        }
-      }
+      trace(downloadProgressString());
       ModioWrapper.process();
       Sys.sleep(.017);
     }
