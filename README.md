@@ -1,4 +1,11 @@
-This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It helps you adding mod functionality to your Haxe games.
+![mod.io Haxe wrapper](modio_haxe_wrapper.jpg?raw=true "mod.io Haxe wrapper")
+
+# mod.io Haxe wrapper
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/DBolical/modioSDK/blob/master/LICENSE)
+[![Discord](https://img.shields.io/discord/389039439487434752.svg)](https://discord.mod.io)
+[![Master docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/Turupawn/modioHaxe/wiki)
+
+This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It helps you adding mod functionality to your Haxe games by connecting to the [mod.io](https://mod.io/) backend.
 
 ### Getting started
 If you are a Haxe game developer and want to add mod.io functionality to your project visit our [documentation](https://github.com/Turupawn/modioHaxe/wiki). Our [getting started](https://apps.mod.io/guides/getting-started) guide is a good place to start if you are completely new to [mod.io](https://mod.io/).
@@ -9,7 +16,7 @@ In case you are using OpenFL, take a look at the OpenFL [installation tutorial](
 
 ### Building instructions
 
-Learn how to build mod.io SDK in our [building instruction guide](https://github.com/Turupawn/modioHaxe/wiki/Building).
+Learn how to build the Haxe wrapper by following our [building instruction guide](https://github.com/Turupawn/modioHaxe/wiki/Building).
 
 ### Code contributions
 
