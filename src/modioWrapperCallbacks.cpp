@@ -28,7 +28,7 @@ void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods
     value mod = getModObject(modio_mod);
     val_array_set_i (mods_haxe, i, mod);
   }
-  value ret = val_call2(*(functions_stored[function_number]), mods_haxe, getResponseObject(response));
+  value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), mods_haxe);
 }
 
 void onModSubscribed(void* object, ModioResponse response, ModioMod mod)

@@ -27,10 +27,10 @@ class Ex02_BrowseMods
     var sorting_type = ModioWrapper.MODIO_SORT_BY_RATING;
     var mods_per_page = 4;
     var page = 0;
-    ModioWrapper.getAllMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(mods:Array<Dynamic>, response_code:Int)
+    ModioWrapper.getAllMods(ModioWrapper.MODIO_SORT_BY_RATING, mods_per_page, page * mods_per_page, function(response:Dynamic, mods:Array<Dynamic>)
     {
-      trace("Response code: " + response_code);
-      if(response_code == 200)
+      trace("Response code: " + response.code);
+      if(response.code == 200)
       {
         for (i in 0...mods_per_page)
         {

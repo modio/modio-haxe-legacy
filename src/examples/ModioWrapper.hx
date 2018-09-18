@@ -292,13 +292,13 @@ class ModioWrapper
   public static var init:Int->Int->String->Void = cpp.Lib.load(ndll_name,"modioWrapperInit",3);
   public static var process:Void->Void = cpp.Lib.load(ndll_name,"modioWrapperProcess",0);
   
-  public static var emailRequest:String->(Int->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailRequest",2);
-  public static var emailExchange:String->(Int->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailExchange",2);
+  public static var emailRequest:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailRequest",2);
+  public static var emailExchange:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailExchange",2);
   public static var isLoggedIn:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperIsLoggedIn",0);
   public static var logout:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperLogout",0);
-  public static var getAllMods:Int->Int->Int->(Array<Dynamic>->Int->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAllMods",4);
-  public static var subscribeToMod:Int->(Int->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSubscribeToMod",2);
-  public static var unsubscribeFromMod:Int->(Int->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperUnsubscribeFromMod",2);
+  public static var getAllMods:Int->Int->Int->(Dynamic->Array<Dynamic>->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAllMods",4);
+  public static var subscribeToMod:Int->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSubscribeToMod",2);
+  public static var unsubscribeFromMod:Int->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperUnsubscribeFromMod",2);
   public static var installMod:Int->Void = cpp.Lib.load(ndll_name,"modioWrapperInstallMod",1);
   public static var uninstallMod:Int->Void = cpp.Lib.load(ndll_name,"modioWrapperUninstallMod",1);
   public static var pauseDownloads:Void->Void = cpp.Lib.load(ndll_name,"modioWrapperPauseDownloads",0);
@@ -310,8 +310,8 @@ class ModioWrapper
   public static var getModfileUploadQueue:Void->Array<Dynamic> = cpp.Lib.load(ndll_name,"modioWrapperGetModfileUploadQueue",0);
   public static var getInstalledMods:Void->Array<Dynamic> = cpp.Lib.load(ndll_name,"modioWrapperGetInstalledMods",0);
   public static var getModState:Int->Int = cpp.Lib.load(ndll_name,"modioWrapperGetModState",1);
-  public static var addMod:ModCreator->(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
-  public static var editMod:Int->ModEditor->(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
+  public static var addMod:ModCreator->(Dynamic->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperAddMod", 2);
+  public static var editMod:Int->ModEditor->(Dynamic->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperEditMod", 3);
   public static var addModfile:Int->ModfileCreator->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
   public static var getAuthenticatedUser:(Int->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAuthenticatedUser", 1);
 }
