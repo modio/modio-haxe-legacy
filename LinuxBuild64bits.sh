@@ -1,6 +1,10 @@
 #!/bin/bash
 mkdir bin
-cp mod.io-sdk-v0.8.0/lib/linux/x64/libmodio.so bin/
-g++ -L./mod.io-sdk-v0.8.0/lib/linux/x64 ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -shared -o ./bin/modioWrapperLinux_x64.ndll -I./include -I./mod.io-sdk-v0.8.0/include -lmodio -fPIC -Wl,-rpath . -std=c++11
+MODIO_SDK_PATH="mod.io-sdk-v0.9.0"
+MODIO_LINKER_PATH="$MODIO_SDK_PATH/lib/linux/x64"
+MODIO_LIBRARY_PATH="$MODIO_LINKER_PATH/libmodio.so"
+MODIO_INCLUDE_PATH="$MODIO_SDK_PATH/include"
+cp $MODIO_LIBRARY_PATH bin/
+g++ -L./$MODIO_LINKER_PATH ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -shared -o ./bin/modioWrapperLinux_x64.ndll -I./include -I./$MODIO_INCLUDE_PATH -lmodio -fPIC -Wl,-rpath . -std=c++11
 haxe -cp src -main Main -cpp bin -D linux
 LD_LIBRARY_PATH=./bin ./bin/Main

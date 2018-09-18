@@ -40,9 +40,9 @@ class Main
     return result;
   }
 
-  static function onEmailExchange(response_code:Int)
+  static function onEmailExchange(response:Dynamic)
   {
-    if (response_code == 200)
+    if (response.code == 200)
     {
       trace("Code exchanged! You are now logged in.");
       trace("Listening to events...");
@@ -54,9 +54,9 @@ class Main
     }
   }
 
-  static function onEmailRequest(response_code:Int)
+  static function onEmailRequest(response:Dynamic)
   {
-    if (response_code == 200)
+    if (response.code == 200)
     {
       trace("Email request successful");
       
@@ -75,9 +75,9 @@ class Main
   {
     ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
 
-    ModioWrapper.setDownloadListener(function(response_code:Int, mod_id:Int)
+    ModioWrapper.setDownloadListener(function(response:Dynamic, mod_id:Int)
     {
-        if(response_code == 200 || response_code == 206)
+        if(response.code == 200 || response.code == 206)
         {
           trace("Mod installed!");
           trace("Id: " + mod_id);

@@ -6,7 +6,9 @@
 #include <map>
 #include <modio.h>
 
-value getTagObject(ModioTag modio_Tag);
+value getErrorObject(ModioError modio_error);
+value getResponseObject(ModioResponse modio_response);
+value getTagObject(ModioTag modio_tag);
 value getMediaObject(ModioMedia modio_media);
 value getStatsObject(ModioStats modio_stats);
 value getDownloadObject(ModioDownload modio_download);

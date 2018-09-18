@@ -1,5 +1,37 @@
 #include "modioWrapperObjects.h"
 
+value getErrorObject(ModioError modio_error)
+{
+  value error = alloc_empty_object();
+
+  alloc_field(error, val_id("code"), alloc_int(modio_error.code));
+  if(modio_error.message)
+    alloc_field(error, val_id("message"), alloc_string(modio_error.message));
+
+  value errors = alloc_array(modio_error.errors_array_size);
+  for (int i = 0; i < modio_error.errors_array_size; i++)
+  {
+    val_array_set_i(error, val_id("errors"), alloc_string(modio_error.errors_array[i]));
+  }
+  alloc_field(error, val_id("errors"), errors);
+
+  return error;
+}
+
+value getResponseObject(ModioResponse modio_response)
+{
+  value response = alloc_empty_object();
+
+  alloc_field(response, val_id("code"), alloc_int(modio_response.code));
+  alloc_field(response, val_id("result_count"), alloc_int(modio_response.result_count));
+  alloc_field(response, val_id("result_limit"), alloc_int(modio_response.result_limit));
+  alloc_field(response, val_id("result_offset"), alloc_int(modio_response.result_offset));
+  alloc_field(response, val_id("result_total"), alloc_int(modio_response.result_total));
+  alloc_field(response, val_id("error"), getErrorObject(modio_response.error));
+
+  return response;
+}
+
 value getTagObject(ModioTag modio_tag)
 {
   value tag = alloc_empty_object();
