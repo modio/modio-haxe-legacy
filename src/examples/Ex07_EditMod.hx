@@ -22,7 +22,6 @@ class Ex07_EditMod
 
     ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
     var is_logged_in = ModioWrapper.isLoggedIn();
-    trace(is_logged_in);
 
     if(!is_logged_in)
     {
@@ -43,16 +42,15 @@ class Ex07_EditMod
       mod_editor.setHomepage("http://edited.mod.com");
       mod_editor.setMetadata("editing metadata from haxe wrapper");
 
-      ModioWrapper.editMod(mod_id, mod_editor, function(response_code:Int, mod:Dynamic)
+      ModioWrapper.editMod(mod_id, mod_editor, function(response:Dynamic, mod:Dynamic)
       {
-        trace("Response code: " + response_code);
-        if (response_code == 200)
+        trace("Response code: " + response.code);
+        if (response.code == 200)
         {
           trace("Mod edited successfully");
         }else
         {
           trace("Error editing mod");
-          trace(response_code);
         }
         finish();
       });

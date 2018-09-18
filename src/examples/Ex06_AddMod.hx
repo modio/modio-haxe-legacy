@@ -60,10 +60,10 @@ class Ex06_AddMod
       //mod_creator.setNameid("unique-mod-id");
 
       // Now we can create the new mod. Remember, this mod wont have a Modfile right away, you should be adding one after the mod was created successfully
-      ModioWrapper.addMod(mod_creator, function(response_code:Int, mod:Dynamic)
+      ModioWrapper.addMod(mod_creator, function(response:Dynamic, mod:Dynamic)
       {
-        trace("Response code: " + response_code);
-        if (response_code == 201)
+        trace("Response code: " + response.code);
+        if (response.code == 201)
         {
           trace("Mod created successfully");
 
@@ -82,7 +82,6 @@ class Ex06_AddMod
         }else
         {
           trace("Error creating mod");
-          trace(response_code);
           finish();
         }
       });

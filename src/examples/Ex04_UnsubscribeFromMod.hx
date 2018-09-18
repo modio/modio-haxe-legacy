@@ -25,10 +25,10 @@ class Ex04_UnsubscribeFromMod
     trace("Enter the mod id: ");
     var mod_id:Int = Std.parseInt(Sys.stdin().readLine());
 
-    ModioWrapper.unsubscribeFromMod(mod_id, function(response_code:Int)
+    ModioWrapper.unsubscribeFromMod(mod_id, function(response:Dynamic)
     {
-      trace("Response code: " + response_code);
-      if(response_code == 204)
+      trace("Response code: " + response.code);
+      if(response.code == 204)
       {
         trace("You are no longer subscribed to the mod");
       }

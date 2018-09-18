@@ -29,19 +29,19 @@ class Ex01_Authentication
       // Auth works by sending an email with a code. Lets trigger that now
       trace("Please type your email:");
       var email = Sys.stdin().readLine();
-      ModioWrapper.emailRequest(email, function(response_code:Int)
+      ModioWrapper.emailRequest(email, function(response:Dynamic)
       {
-        trace("Response code: " + response_code);
-        if (response_code == 200)
+        trace("Response code: " + response.code);
+        if (response.code == 200)
         {
           trace("Email request successful");
           
           // Finish the auth process by entering the security code
           trace("Please enter the 5 digit security code:");
           var security_code = Sys.stdin().readLine();
-          ModioWrapper.emailExchange(security_code, function(response_code:Int)
+          ModioWrapper.emailExchange(security_code, function(response:Dynamic)
           {
-            if (response_code == 200)
+            if (response.code == 200)
             {
               trace("Code exchanged! You are now logged in.");
             }

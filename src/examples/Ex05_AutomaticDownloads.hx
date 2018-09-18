@@ -34,9 +34,9 @@ class Ex05_AutomaticDownloads
 
     // Everytime a mod finished intalling the download listener function will be called
     trace("Listening to mod installs...");
-    ModioWrapper.setDownloadListener(function(response_code:Int, mod_id:Int)
+    ModioWrapper.setDownloadListener(function(response:Dynamic, mod_id:Int)
     {
-        if(response_code == 200 || response_code == 206)
+        if(response.code == 200 || response.code == 206)
         {
           trace("Mod installed!");
           trace("Id: " + mod_id);

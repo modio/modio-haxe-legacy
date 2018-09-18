@@ -27,10 +27,10 @@ class Ex03_SubscribeToMod
     trace("Enter the mod id: ");
     var mod_id:Int = Std.parseInt(Sys.stdin().readLine());
 
-    ModioWrapper.subscribeToMod(mod_id, function(response_code:Int)
+    ModioWrapper.subscribeToMod(mod_id, function(response:Dynamic)
     {
-      trace("Response code: " + response_code);
-      if(response_code == 201)
+      trace("Response code: " + response.code);
+      if(response.code == 201)
       {
         trace("You are now subscribed to the mod!");
       }
