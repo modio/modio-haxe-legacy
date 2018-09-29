@@ -20,7 +20,7 @@ class Ex04_UnsubscribeFromMod
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
 
     trace("Enter the mod id: ");
     var mod_id:Int = Std.parseInt(Sys.stdin().readLine());

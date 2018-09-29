@@ -49,6 +49,7 @@
     "tuple": "cpp",
     "typeinfo": "cpp",
     "utility": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "algorithm": "cpp"
   }
 }

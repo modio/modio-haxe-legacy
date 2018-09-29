@@ -20,7 +20,7 @@ class Ex07_EditMod
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
     var is_logged_in = ModioWrapper.isLoggedIn();
 
     if(!is_logged_in)
@@ -35,8 +35,8 @@ class Ex07_EditMod
       // The Mod Editor helps setting up the fields that will be updated
       var mod_editor:ModEditor = new ModEditor();
       mod_editor.setName("Haxe mod edit");
-      mod_editor.setVisible(ModioWrapper.MODIO_PUBLIC);
-      mod_editor.setMaturityOption(ModioWrapper.MODIO_MATURITY_DRUGS | ModioWrapper.MODIO_MATURITY_VIOLENCE);
+      mod_editor.setVisible(ModioWrapper.PUBLIC);
+      mod_editor.setMaturityOption(ModioWrapper.MATURITY_DRUGS | ModioWrapper.MATURITY_VIOLENCE);
       //mod_editor.setNameid("unique-mod-id");
       mod_editor.setDescription("This is an edited description from the Haxe wrapper. This shuld be at least 100 characters long. So it must be a long description.");
       mod_editor.setHomepage("http://edited.mod.com");

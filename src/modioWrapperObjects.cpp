@@ -18,6 +18,19 @@ value getErrorObject(ModioError modio_error)
   return error;
 }
 
+value getEventObject(ModioEvent modio_event)
+{
+  value event = alloc_empty_object();
+
+  alloc_field(event, val_id("id"), alloc_int(modio_event.id));
+  alloc_field(event, val_id("mod_id"), alloc_int(modio_event.mod_id));
+  alloc_field(event, val_id("user_id"), alloc_int(modio_event.user_id));
+  alloc_field(event, val_id("event_type"), alloc_int(modio_event.event_type));
+  alloc_field(event, val_id("date_added"), alloc_int(modio_event.date_added));
+
+  return event;
+}
+
 value getResponseObject(ModioResponse modio_response)
 {
   value response = alloc_empty_object();

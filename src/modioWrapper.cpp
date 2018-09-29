@@ -77,8 +77,10 @@ extern "C"
 
     download_listener = NULL;
     upload_listener = NULL;
+    event_listener = NULL;
     modioSetDownloadListener(&onModDownload);
     modioSetUploadListener(&onModUpload);
+    modioSetEventListener(&onEvent);
 
     modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str(), NULL);
 
@@ -106,27 +108,31 @@ extern "C"
 
   value modioWrapperEmailRequest(value email, value callback)
   {
+    current_function++;
+
     val_check_function(callback, 1);
     storeFunction(callback, current_function);
 
     std::string email_cpp = valueToString(email);
 
+
     modioEmailRequest(new int(current_function), (char *)email_cpp.c_str(), &onEmailRequest);
 
-    current_function++;
     return 0;
   }
 
   value modioWrapperEmailExchange(value security_code, value callback)
   {
+    current_function++;
+
     val_check_function(callback, 1);
     storeFunction(callback, current_function);
 
     std::string security_code_cpp = valueToString(security_code);
 
+
     modioEmailExchange(new int(current_function), (char *)security_code_cpp.c_str(), &onExchange);
 
-    current_function++;
     return 0;
   }
 
@@ -134,6 +140,8 @@ extern "C"
 
   value modioWrapperGetAllMods(value filter_type, value limit, value offset, value callback)
   {
+    current_function++;
+
     val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
@@ -166,7 +174,6 @@ extern "C"
 
     modioGetAllMods(new int(current_function), modio_filter, &onGetAllMods);
 
-    current_function++;
     return 0;
   }
 
@@ -174,6 +181,8 @@ extern "C"
 
   value modioWrapperSubscribeToMod(value mod_id, value callback)
   {
+    current_function++;
+
     val_check_function(callback, 1);
     storeFunction(callback, current_function);
 
@@ -181,12 +190,13 @@ extern "C"
 
     modioSubscribeToMod(new int(current_function), mod_id_cpp, &onModSubscribed);
 
-    current_function++;
     return 0;
   }
 
   value modioWrapperUnsubscribeFromMod(value mod_id, value callback)
   {
+    current_function++;
+
     val_check_function(callback, 1);
     storeFunction(callback, current_function);
 
@@ -194,7 +204,6 @@ extern "C"
 
     modioUnsubscribeFromMod(new int(current_function), mod_id_cpp, &onModUnsubscribed);
 
-    current_function++;
     return 0;
   }
 
@@ -277,6 +286,17 @@ extern "C"
     return 0;
   }
 
+  value modioWrapperSetEventListener(value callback)
+  {
+    if (!event_listener)
+      event_listener = alloc_root();
+
+    val_check_function(callback, 2);
+    *event_listener = callback;
+    printf("Event listener set\n");
+    return 0;
+  }
+
   value modioWrapperGetModfileUploadQueue()
   {
     int queue_size = modioGetModfileUploadQueueCount();
@@ -334,6 +354,8 @@ extern "C"
   {
     if (val_is_object(mod_creator))
     {
+      current_function++;
+
       val_check_function(callback, 2);
       storeFunction(callback, current_function);
 
@@ -354,33 +376,32 @@ extern "C"
       ModioModCreator mod_creator;
       modioInitModCreator(&mod_creator);
       // Required fields
-      if(logo_path_cpp != "")
+      if (logo_path_cpp != "")
         modioSetModCreatorLogoPath(&mod_creator, (char *)logo_path_cpp.c_str());
-      if(name_cpp != "")
+      if (name_cpp != "")
         modioSetModCreatorName(&mod_creator, (char *)name_cpp.c_str());
-      if(summary_cpp != "")
+      if (summary_cpp != "")
         modioSetModCreatorSummary(&mod_creator, (char *)summary_cpp.c_str());
       // Optional fields
-      if(visible_cpp != -1)
+      if (visible_cpp != -1)
         modioSetModCreatorVisible(&mod_creator, visible_cpp);
-      if(maturity_option_cpp != -1)
+      if (maturity_option_cpp != -1)
         modioSetModCreatorMaturityOption(&mod_creator, maturity_option_cpp);
-      if(name_id_cpp != "")
+      if (name_id_cpp != "")
         modioSetModCreatorNameid(&mod_creator, (char *)name_id_cpp.c_str());
-      if(description_cpp != "")
+      if (description_cpp != "")
         modioSetModCreatorDescription(&mod_creator, (char *)description_cpp.c_str());
-      if(homepage_cpp != "")
+      if (homepage_cpp != "")
         modioSetModCreatorHomepageURL(&mod_creator, (char *)homepage_cpp.c_str());
-      if(metadata_cpp != "")
+      if (metadata_cpp != "")
         modioSetModCreatorMetadataBlob(&mod_creator, (char *)metadata_cpp.c_str());
-      for(auto tag : tags_cpp)
+      for (auto tag : tags_cpp)
       {
         modioAddModCreatorTag(&mod_creator, (char *)tag.c_str());
       }
 
       modioAddMod(new int(current_function), mod_creator, &onModAdded);
 
-      current_function++;
     }
     else
     {
@@ -395,6 +416,8 @@ extern "C"
   {
     if (val_is_object(mod_editor))
     {
+      current_function++;
+
       val_check_function(callback, 2);
       storeFunction(callback, current_function);
 
@@ -413,30 +436,29 @@ extern "C"
 
       ModioModEditor mod_editor;
       modioInitModEditor(&mod_editor);
-      if(visible_cpp != -1)
+      if (visible_cpp != -1)
         modioSetModEditorVisible(&mod_editor, visible_cpp);
-      if(maturity_option_cpp != -1)
+      if (maturity_option_cpp != -1)
         modioSetModEditorMaturityOption(&mod_editor, maturity_option_cpp);
-      if(status_cpp != -1)
+      if (status_cpp != -1)
         modioSetModEditorMaturityOption(&mod_editor, status_cpp);
-      if(modfile_id_cpp != -1)
+      if (modfile_id_cpp != -1)
         modioSetModEditorMaturityOption(&mod_editor, modfile_id_cpp);
-      if(name_cpp != "")
+      if (name_cpp != "")
         modioSetModEditorName(&mod_editor, (char *)name_cpp.c_str());
-      if(name_id_cpp != "")
+      if (name_id_cpp != "")
         modioSetModEditorNameid(&mod_editor, (char *)name_id_cpp.c_str());
-      if(summary_cpp != "")
+      if (summary_cpp != "")
         modioSetModEditorSummary(&mod_editor, (char *)summary_cpp.c_str());
-      if(description_cpp != "")
+      if (description_cpp != "")
         modioSetModEditorDescription(&mod_editor, (char *)description_cpp.c_str());
-      if(homepage_cpp != "")
+      if (homepage_cpp != "")
         modioSetModEditorHomepageURL(&mod_editor, (char *)homepage_cpp.c_str());
-      if(metadata_cpp != "")
+      if (metadata_cpp != "")
         modioSetModEditorMetadataBlob(&mod_editor, (char *)metadata_cpp.c_str());
 
       modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModEdited);
 
-      current_function++;
     }
     else
     {
@@ -461,14 +483,14 @@ extern "C"
 
       ModioModfileCreator modfile_creator;
       modioInitModfileCreator(&modfile_creator);
-      if(path_cpp != "")
+      if (path_cpp != "")
         modioSetModfileCreatorPath(&modfile_creator, (char *)path_cpp.c_str());
-      if(version_cpp != "")
+      if (version_cpp != "")
         modioSetModfileCreatorVersion(&modfile_creator, (char *)version_cpp.c_str());
-      if(changelog_cpp != "")
+      if (changelog_cpp != "")
         modioSetModfileCreatorChangelog(&modfile_creator, (char *)changelog_cpp.c_str());
       modioSetModfileCreatorActive(&modfile_creator, active_cpp);
-      if(filehash_cpp != "")
+      if (filehash_cpp != "")
         modioSetModfileCreatorFilehash(&modfile_creator, (char *)filehash_cpp.c_str());
 
       modioAddModfile(mod_id_cpp, modfile_creator);
@@ -483,13 +505,47 @@ extern "C"
   // Me
   value modioWrapperGetAuthenticatedUser(value callback)
   {
+    current_function++;
+
     val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
     modioGetAuthenticatedUser(new int(current_function), &onGetAuthenticatedUser);
 
-    current_function++;
     return 0;
+  }
+
+  value modioWrapperGetUserSubscriptions(value callback)
+  {
+    current_function++;
+    
+    val_check_function(callback, 2);
+    storeFunction(callback, current_function);
+
+    ModioFilterCreator filter;
+    modioInitFilter(&filter);
+
+    modioGetUserSubscriptions(new int(current_function), filter, &onGetUserSubscriptions);
+
+    return 0;
+  }
+
+  value modioWrapperGetUserSubscriptionsIds()
+  {
+    int mod_id_array_size = modioGetUserSubscriptionsIdsCount();
+
+    u32 *mod_id_array = (u32 *)malloc(sizeof(int) * 4);
+    modioGetUserSubscriptionsIds(mod_id_array);
+
+    value return_value = alloc_array(mod_id_array_size);
+    for (int i = 0; i < mod_id_array_size; i++)
+    {
+      val_array_set_i(return_value, i, alloc_int(mod_id_array[i]));
+    }
+
+    free(mod_id_array);
+
+    return return_value;
   }
 }
 
@@ -517,3 +573,6 @@ DEFINE_PRIM(modioWrapperAddMod, 2);
 DEFINE_PRIM(modioWrapperEditMod, 3);
 DEFINE_PRIM(modioWrapperAddModfile, 2);
 DEFINE_PRIM(modioWrapperGetAuthenticatedUser, 1);
+DEFINE_PRIM(modioWrapperGetUserSubscriptions, 1);
+DEFINE_PRIM(modioWrapperGetUserSubscriptionsIds, 0);
+DEFINE_PRIM(modioWrapperSetEventListener, 1);

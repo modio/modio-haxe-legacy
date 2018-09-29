@@ -1,6 +1,6 @@
 import ModioWrapper;
 
-class Ex02_BrowseMods
+class Ex08_GetUserSubscriptions
 {
   static function main()
   {
@@ -24,15 +24,12 @@ class Ex02_BrowseMods
 
     // Before requesting mods, let's define the query filters
     // Other sorting types available are: SORT_BY_ID, SORT_BY_DATE_LIVE and SORT_BY_DATE_UPDATED
-    var sorting_type = ModioWrapper.SORT_BY_RATING;
-    var mods_per_page = 4;
-    var page = 0;
-    ModioWrapper.getAllMods(ModioWrapper.SORT_BY_RATING, mods_per_page, page * mods_per_page, function(response:Dynamic, mods:Array<Dynamic>)
+    ModioWrapper.getUserSubscriptions(function(response:Dynamic, mods:Array<Dynamic>)
     {
       trace("Response code: " + response.code);
       if(response.code == 200)
       {
-        for (i in 0...mods_per_page)
+        for (i in 0...mods.length)
         {
           trace("Id: " + mods[i].id);
           trace("Name: " + mods[i].name);

@@ -20,7 +20,7 @@ class Ex06_AddMod
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.MODIO_ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
     var is_logged_in = ModioWrapper.isLoggedIn();
 
     // The upload listener will be called once the modfile has finished uploading
@@ -50,8 +50,8 @@ class Ex06_AddMod
       mod_creator.setLogoPath("ModExample/logo.png");
       mod_creator.setSummary("This is a mod example created from the Haxe wrapper.");
       // You can set other optional fields as well
-      mod_creator.setVisible(ModioWrapper.MODIO_PUBLIC);
-      mod_creator.setMaturityOption(ModioWrapper.MODIO_MATURITY_DRUGS | ModioWrapper.MODIO_MATURITY_VIOLENCE);
+      mod_creator.setVisible(ModioWrapper.PUBLIC);
+      mod_creator.setMaturityOption(ModioWrapper.MATURITY_DRUGS | ModioWrapper.MATURITY_VIOLENCE);
       mod_creator.setDescription("This is a description from the Haxe wrapper. This shuld be at least 100 characters long. So it must be a long description.");
       mod_creator.setHomepage("http://haxewrapper.mod.com");
       mod_creator.setMetadata("testing metadata from haxe wrapper");
