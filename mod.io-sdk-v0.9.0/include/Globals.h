@@ -27,6 +27,7 @@ namespace modio
   extern void (*download_callback)(u32 response_code, u32 mod_id);
   extern void (*upload_callback)(u32 response_code, u32 mod_id);
   extern std::set<int> current_user_subscriptions;
+  extern std::set<u32> provisional_installed_mods_ids;
 }
 
 #endif
