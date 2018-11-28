@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Data-Structures.md - Grip</title>
+  <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAKCgr/FRUX/xYWGP8YGBr/GRkb/xsbHP8dHR7/Hh4f/x4eIP8fHyD/ICAh/yMjJP8kJCX/JiYo/ygoKv8pKSr/LCwu/y0tLv80NDT/QUFC/0ZGR/9MTE7/UFBR/1JSUv9bW1v/XFxc/2BgYP9hYWP/aGhp/2xsbP9ycnL/d3d3/3l5e/98fHz/f3+A/2dn/P9z3a//cNX8/4CAgP+Xl5f/nZ2e/56en/+fn5//n5+h/6amp/+rq6v/rKys/7CvsP+zs7T/uLi5/7u7u/+8vLz/wMDA/8fHx//Kysr/zc3N/9HR0f/d3d3/3t7e/+Xl5f/q6ur/6+vr/+3t7f/z8/P/9fX1//b29v/39/f/+Pj4//n5+f/6+vr/+/v7//z8/P/9/f3//v7+//////8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/NCYmJiYmJiYmJiYmJiYmNCZKSkpKSkpKSkpKSkpKSiYmSkpKRisdRkMbMklKSkomJkpKSSEiNUhEEQwpSUpKJiZKSi8LHhhAPAwBDDZKSiYmSkoWACA7SEc6HAEaSkomJkpKBxI/SkpKSj4ICkpKJiZKSgUTR0pKSkpGDwZKSiYmSkoTED1KSkpKOQQVSkomJkpKKgowMy4sNycIMUpKJiZKSkEZDgkDAgsNH0VKSiYmSkpKQigUBgkXLUhKSkomJkpKSkpKSkpKSkpKSkpKJiYmJiYmJiYmJiYmJiYmJiYmIyUkNDQ0NDQ0NDQ0NDQmOCYmJiYmJiYmJiYmJiYmOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" />
+  <link rel="stylesheet" href="//octicons.github.com/components/octicons/octicons/octicons.css" />
+  <style>
+    /* Page tweaks */
+    .preview-page {
+      margin-top: 64px;
+    }
+    /* User-content tweaks */
+    .timeline-comment-wrapper > .timeline-comment:after,
+    .timeline-comment-wrapper > .timeline-comment:before {
+      content: none;
+    }
+    /* User-content overrides */
+    .discussion-timeline.wide {
+      width: 920px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div id="preview-page" class="preview-page" data-autorefresh-url="">
+
+    
+
+      <div role="main" class="main-content">
+        <div class="container new-discussion-timeline experiment-repo-nav">
+          <div class="repository-content">
+            <div id="readme" class="readme boxed-group clearfix announce instapaper_body md">
+              
+                <h3>
+                  <span class="octicon octicon-book"></span>
+                  Data-Structures.md - Grip
+                </h3>
+              
+              <article class="markdown-body entry-content" itemprop="text" id="grip-content">
+                <h1>
+<a id="user-content-struct-modioresponse" class="anchor" href="#struct-modioresponse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>struct ModioResponse</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="/DBolical/modioSDK/wiki/Data-Structures#struct-modioerror">ModioError</a></td>
+<td></td>
+</tr>
+<tr>
+<td>cursor_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>prev_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>next_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>result_count</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-struct-modioerror" class="anchor" href="#struct-modioerror" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>struct ModioError</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>Error code returned by the server. See TODO.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>char*</td>
+<td>Error message returned by the server.</td>
+</tr>
+<tr>
+<td>errors_array</td>
+<td>char**</td>
+<td>String array containing the error messages returned by the server.</td>
+</tr>
+<tr>
+<td>errors_array_size</td>
+<td>int</td>
+<td>Size of the errors array.</td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-struct-currentdownloadinfo-todo" class="anchor" href="#struct-currentdownloadinfo-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>struct CurrentDownloadInfo TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>download_total</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>download_progress</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-image-todo" class="anchor" href="#class-image-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class Image TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>full</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-media-todo" class="anchor" href="#class-media-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class Media TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>youtube</td>
+<td>std::vector</td>
+<td></td>
+</tr>
+<tr>
+<td>sketchfab</td>
+<td>std::vector</td>
+<td></td>
+</tr>
+<tr>
+<td>images</td>
+<td>std::vector&lt;Image*&gt;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-modiomod" class="anchor" href="#class-modiomod" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class ModioMod</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Unique mod identifier.</td>
+</tr>
+<tr>
+<td>game</td>
+<td>int</td>
+<td>Game identifier that is associated with this mod.</td>
+</tr>
+<tr>
+<td>member</td>
+<td>int</td>
+<td>User identifier that is associated with this mod.</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>Mod price. TODO</td>
+</tr>
+<tr>
+<td>datereg</td>
+<td>int</td>
+<td>Date where this mod was created.</td>
+</tr>
+<tr>
+<td>dateup</td>
+<td>int</td>
+<td>Date where this mod was last updated.</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>ModioImage*</td>
+<td>Mod's logo</td>
+</tr>
+<tr>
+<td>homepage</td>
+<td>string</td>
+<td>Mod official website.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Mod's name</td>
+</tr>
+<tr>
+<td>nameid</td>
+<td>string</td>
+<td>Mod's unique string identifier. Can be choosen by the mod creator.</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>media</td>
+<td>Media*</td>
+<td></td>
+</tr>
+<tr>
+<td>modfile</td>
+<td>Modfile*</td>
+<td></td>
+</tr>
+<tr>
+<td>ratings</td>
+<td>Ratings*</td>
+<td></td>
+</tr>
+<tr>
+<td>tag</td>
+<td>Tag*</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-modfile-todo" class="anchor" href="#class-modfile-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class Modfile TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>member</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>datevirus</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>virusstatus</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>viruspositive</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>filesize</td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td>filehash</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>virustotal</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>changelog</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>download</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-ratings-todo" class="anchor" href="#class-ratings-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class Ratings TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>positive</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>negative</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>weighted</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>percentage</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>stars</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="user-content-class-tag-todo" class="anchor" href="#class-tag-todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class Tag TODO</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>game</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>member</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+
+  </div>
+  <div>&nbsp;</div>
+  </div><script>
+    function showCanonicalImages() {
+      var images = document.getElementsByTagName('img');
+      if (!images) {
+        return;
+      }
+      for (var index = 0; index < images.length; index++) {
+        var image = images[index];
+        if (image.getAttribute('data-canonical-src') && image.src !== image.getAttribute('data-canonical-src')) {
+          image.src = image.getAttribute('data-canonical-src');
+        }
+      }
+    }
+
+    function scrollToHash() {
+      if (location.hash && !document.querySelector(':target')) {
+        var element = document.getElementById('user-content-' + location.hash.slice(1));
+        if (element) {
+           element.scrollIntoView();
+        }
+      }
+    }
+
+    function autorefreshContent(eventSourceUrl) {
+      var initialTitle = document.title;
+      var contentElement = document.getElementById('grip-content');
+      var source = new EventSource(eventSourceUrl);
+      var isRendering = false;
+
+      source.onmessage = function(ev) {
+        var msg = JSON.parse(ev.data);
+        if (msg.updating) {
+          isRendering = true;
+          document.title = '(Rendering) ' + document.title;
+        } else {
+          isRendering = false;
+          document.title = initialTitle;
+          contentElement.innerHTML = msg.content;
+          showCanonicalImages();
+        }
+      }
+
+      source.onerror = function(e) {
+        if (e.readyState === EventSource.CLOSED && isRendering) {
+          isRendering = false;
+          document.title = initialTitle;
+        }
+      }
+    }
+
+    window.onhashchange = function() {
+      scrollToHash();
+    }
+
+    window.onload = function() {
+      scrollToHash();
+    }
+
+    showCanonicalImages();
+
+    var autorefreshUrl = document.getElementById('preview-page').getAttribute('data-autorefresh-url');
+    if (autorefreshUrl) {
+      autorefreshContent(autorefreshUrl);
+    }
+  </script>
+</body>
+</html>

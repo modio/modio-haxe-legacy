@@ -212,7 +212,7 @@ extern "C"
   value modioWrapperInstallMod(value mod_id)
   {
     int mod_id_cpp = valueToInt(mod_id);
-    modioInstallMod(mod_id_cpp);
+    //modioInstallMod(mod_id_cpp);
     return 0;
   }
 
@@ -329,7 +329,7 @@ extern "C"
       value installed_mod = alloc_empty_object();
       alloc_field(installed_mod, val_id("mod_id"), alloc_int(installed_mods[i].mod_id));
       alloc_field(installed_mod, val_id("modfile_id"), alloc_int(installed_mods[i].modfile_id));
-      alloc_field(installed_mod, val_id("updated_at"), alloc_int(installed_mods[i].updated_at));
+      //alloc_field(installed_mod, val_id("updated_at"), alloc_int(installed_mods[i].date_updated));
       alloc_field(installed_mod, val_id("path"), alloc_string(installed_mods[i].path));
       alloc_field(installed_mod, val_id("mod"), getModObject(installed_mods[i].mod));
 
@@ -532,6 +532,7 @@ extern "C"
 
   value modioWrapperGetUserSubscriptionsIds()
   {
+    /*
     int mod_id_array_size = modioGetUserSubscriptionsIdsCount();
 
     u32 *mod_id_array = (u32 *)malloc(sizeof(int) * 4);
@@ -546,6 +547,8 @@ extern "C"
     free(mod_id_array);
 
     return return_value;
+    */
+   return 0;
   }
 }
 
