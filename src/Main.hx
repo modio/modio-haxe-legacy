@@ -4,24 +4,14 @@ class Main
 {
   static function downloadProgressString()
   {
-    var installed_mods:Array<Dynamic>;
-    installed_mods = ModioWrapper.getInstalledMods();
-
     var download_queue:Array<Dynamic>;
     download_queue = ModioWrapper.getModDownloadQueue();
 
     var result:String = "";
-    if(installed_mods.length == 1)
-    {
-      result += installed_mods.length + " mod downloaded from mod.io. (Install by reloading)";
-    }else
-    {
-      result += installed_mods.length + " mods downloaded from mod.io. (Install by reloading)";
-    }
 
     if(download_queue.length > 0)
     {
-      result += download_queue.length + " mods downloading. ";
+      result += "Downloading " + download_queue.length + " mods. ";
       var current_download = download_queue[0];
       
       if(current_download.current_progress != 0)
@@ -35,7 +25,7 @@ class Main
       }
     }else
     {
-      result += "Install mods by subscribing to them.";
+      result += "Download mods by subscribing on mod.io";
     }
     return result;
   }
