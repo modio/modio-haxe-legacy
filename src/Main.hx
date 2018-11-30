@@ -13,10 +13,10 @@ class Main
     var result:String = "";
     if(installed_mods.length == 1)
     {
-      result += installed_mods.length + " mod installed through mod.io. ";
+      result += installed_mods.length + " mod downloaded from mod.io. (Install by reloading)";
     }else
     {
-      result += installed_mods.length + " mods installed through mod.io. ";
+      result += installed_mods.length + " mods downloaded from mod.io. (Install by reloading)";
     }
 
     if(download_queue.length > 0)

@@ -16,6 +16,8 @@ haxe -cp src/examples -main Ex06_AddMod -cpp bin -D linux
 haxe -cp src/examples -main Ex07_EditMod -cpp bin -D linux
 haxe -cp src/examples -main Ex08_GetUserSubscriptions -cpp bin -D linux
 haxe -cp src/examples -main Ex09_SetEventListener -cpp bin -D linux
+haxe -cp src/examples -main Ex10_InstallDownloadedMods -cpp bin -D linux
+haxe -cp src/examples -main Ex11_GetInstalledMods -cpp bin -D linux
 
 # Run an individual example by typing the following
 # LD_LIBRARY_PATH=./bin ./bin/Ex01_Authentication
