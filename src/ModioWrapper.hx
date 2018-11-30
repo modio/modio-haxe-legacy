@@ -315,6 +315,5 @@ class ModioWrapper
   public static var addModfile:Int->ModfileCreator->Int = cpp.Lib.load(ndll_name,"modioWrapperAddModfile", 2);
   public static var getAuthenticatedUser:(Dynamic->Dynamic->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAuthenticatedUser", 1);
   public static var getUserSubscriptions:(Dynamic->Array<Dynamic>->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetUserSubscriptions", 1);
-  public static var getUserSubscriptionsIds:Void->Array<Int> = cpp.Lib.load(ndll_name,"modioWrapperGetUserSubscriptionsIds", 0);
   public static var setEventListener:(Dynamic->Array<Dynamic>->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSetEventListener",1);
 }

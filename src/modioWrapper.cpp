@@ -529,27 +529,6 @@ extern "C"
 
     return 0;
   }
-
-  value modioWrapperGetUserSubscriptionsIds()
-  {
-    /*
-    int mod_id_array_size = modioGetUserSubscriptionsIdsCount();
-
-    u32 *mod_id_array = (u32 *)malloc(sizeof(int) * 4);
-    modioGetUserSubscriptionsIds(mod_id_array);
-
-    value return_value = alloc_array(mod_id_array_size);
-    for (int i = 0; i < mod_id_array_size; i++)
-    {
-      val_array_set_i(return_value, i, alloc_int(mod_id_array[i]));
-    }
-
-    free(mod_id_array);
-
-    return return_value;
-    */
-   return 0;
-  }
 }
 
 DEFINE_PRIM(modioWrapperInit, 3);
@@ -577,5 +556,4 @@ DEFINE_PRIM(modioWrapperEditMod, 3);
 DEFINE_PRIM(modioWrapperAddModfile, 2);
 DEFINE_PRIM(modioWrapperGetAuthenticatedUser, 1);
 DEFINE_PRIM(modioWrapperGetUserSubscriptions, 1);
-DEFINE_PRIM(modioWrapperGetUserSubscriptionsIds, 0);
 DEFINE_PRIM(modioWrapperSetEventListener, 1);
