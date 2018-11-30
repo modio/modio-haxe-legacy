@@ -209,10 +209,16 @@ extern "C"
 
   // Download Methods
 
-  value modioWrapperInstallMod(value mod_id)
+  value modioWrapperInstallDownloadedMods()
+  {
+    modioInstallDownloadedMods();
+    return 0;
+  }
+
+  value modioWrapperDownloadMod(value mod_id)
   {
     int mod_id_cpp = valueToInt(mod_id);
-    //modioInstallMod(mod_id_cpp);
+    modioDownloadMod(mod_id_cpp);
     return 0;
   }
 
@@ -540,7 +546,8 @@ DEFINE_PRIM(modioWrapperLogout, 0);
 DEFINE_PRIM(modioWrapperGetAllMods, 4);
 DEFINE_PRIM(modioWrapperSubscribeToMod, 2);
 DEFINE_PRIM(modioWrapperUnsubscribeFromMod, 2);
-DEFINE_PRIM(modioWrapperInstallMod, 1);
+DEFINE_PRIM(modioWrapperInstallDownloadedMods, 0);
+DEFINE_PRIM(modioWrapperDownloadMod, 1);
 DEFINE_PRIM(modioWrapperUninstallMod, 1);
 DEFINE_PRIM(modioWrapperPauseDownloads, 0);
 DEFINE_PRIM(modioWrapperResumeDownloads, 0);
