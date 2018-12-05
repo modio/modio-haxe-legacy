@@ -46,10 +46,10 @@ void onModUnsubscribed(void* object, ModioResponse response)
 
 void onModDownload(u32 response_code, u32 mod_id)
 {
-  modioWrapperWriteLogLine("wrapper onDownload called", MODIO_DEBUGLEVEL_LOG);
+  modioWrapperWriteLogLine("Download listener called", MODIO_DEBUGLEVEL_LOG);
   if(download_listener != NULL)
   {
-    modioWrapperWriteLogLine("listener found! calling now...", MODIO_DEBUGLEVEL_LOG);
+    modioWrapperWriteLogLine("Event listener found! Calling it now...", MODIO_DEBUGLEVEL_LOG);
     val_check_function(*download_listener, 2);
     value ret = val_call2(*download_listener, alloc_int(response_code), alloc_int(mod_id));
   }
