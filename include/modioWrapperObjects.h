@@ -20,3 +20,4 @@ value getUserObject(ModioUser modio_user);
 value getImageObject(ModioImage modio_image);
 value getLogoObject(ModioLogo modio_logo);
 value getModObject(ModioMod modio_mod);
+void modioWrapperWriteLogLine(const std::string &text, u32 debug_level);

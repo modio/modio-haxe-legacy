@@ -261,3 +261,25 @@ value getModObject(ModioMod modio_mod)
 
   return mod;
 }
+
+// ...
+
+void modioWrapperWriteLogLine(const std::string &text, u32 debug_level)
+{
+  std::ofstream log_file(".modio/log", std::ios::app);
+  log_file << "[wrapper] ";
+  if (debug_level == MODIO_DEBUGLEVEL_ERROR)
+  {
+    log_file << "[Error] ";
+  }
+  else if (debug_level == MODIO_DEBUGLEVEL_WARNING)
+  {
+    log_file << "[WARNING] ";
+  }
+  else if (debug_level == MODIO_DEBUGLEVEL_LOG)
+  {
+    log_file << "[LOG] ";
+  }
+  log_file << text.c_str() << "\n";
+  log_file.close();
+}
