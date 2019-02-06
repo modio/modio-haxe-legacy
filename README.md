@@ -1,4 +1,4 @@
-![mod.io Haxe wrapper](modio_haxe_wrapper.jpg?raw=true "mod.io Haxe wrapper")
+<a href="https://mod.io"><img src="https://static.mod.io/v1/images/branding/modio-color-dark.svg" alt="mod.io" width="400"/></a> <a href="https://mod.io"><img src="https://haxe.org/img/branding/haxe-logo.png" alt="mod.io" width="400"/></a>
 
 # mod.io Haxe wrapper
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/modio/SDK/blob/master/LICENSE)
