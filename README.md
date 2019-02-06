@@ -1,4 +1,5 @@
-<a href="https://mod.io"><img src="https://static.mod.io/v1/images/branding/modio-color-dark.svg" alt="mod.io" width="400"/></a> <a href="https://mod.io"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe-logo-white-background-large.png" alt="mod.io" width="400"/></a>
+<a href="https://mod.io"><img src="https://static.mod.io/v1/images/branding/modio-color-dark.svg" alt="mod.io" width="400"/></a>
+<a href="https://mod.io"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe-logo-white-background-large.png" alt="mod.io" width="400"/></a>
 
 # mod.io Haxe wrapper
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/modio/SDK/blob/master/LICENSE)
