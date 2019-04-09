@@ -3,7 +3,7 @@
 
 # mod.io Haxe wrapper
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/modio/SDK/blob/master/LICENSE)
-[![Discord](https://img.shields.io/discord/389039439487434752.svg)](https://discord.mod.io)
+[![Discord](https://img.shields.io/discord/389039439487434752.svg?label=Discord&logo=discord&color=7289DA&labelColor=2C2F33)](https://discord.mod.io)
 [![Master docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/Turupawn/modioHaxe/wiki)
 
 This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It helps you adding mod functionality to your Haxe games by connecting to the [mod.io](https://mod.io/) backend.
