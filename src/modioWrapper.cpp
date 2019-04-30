@@ -84,7 +84,7 @@ extern "C"
 
     modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str(), NULL);
 
-    modioWrapperWriteLogLine("Wrapper v0.6.3 initialized", MODIO_DEBUGLEVEL_LOG);    
+    modioWrapperWriteLogLine("Wrapper v0.6.4 initialized", MODIO_DEBUGLEVEL_LOG);    
 
     return 0;
   }
