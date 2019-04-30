@@ -64,7 +64,7 @@ void onModUpload(u32 response_code, u32 mod_id)
   }
 }
 
-void onEvent(ModioResponse response, ModioEvent* events_array, u32 events_array_size)
+void onEvent(ModioResponse response, ModioModEvent* events_array, u32 events_array_size)
 {
   if(event_listener != NULL)
   {
