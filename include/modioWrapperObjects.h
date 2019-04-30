@@ -7,7 +7,7 @@
 #include <modio.h>
 
 value getErrorObject(ModioError modio_error);
-value getEventObject(ModioEvent modio_event);
+value getEventObject(ModioModEvent modio_event);
 value getResponseObject(ModioResponse modio_response);
 value getTagObject(ModioTag modio_tag);
 value getMediaObject(ModioMedia modio_media);

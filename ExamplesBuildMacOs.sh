@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir bin
-cp mod.io-sdk-v0.10.0/lib/macos/x64/libmodio.dylib bin/
-clang++ -shared -L./mod.io-sdk-v0.10.0/lib/macos/x64 -lmodio ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -o ./bin/modioWrapperMacOS.ndll -I./include -I./mod.io-sdk-v0.10.0/include -std=c++11
+cp mod.io-sdk-v0.11.1/lib/macos/x64/libmodio.dylib bin/
+clang++ -shared -L./mod.io-sdk-v0.11.1/lib/macos/x64 -lmodio ./src/modioWrapper.cpp ./src/modioWrapperCallbacks.cpp ./src/modioWrapperObjects.cpp -o ./bin/modioWrapperMacOS.ndll -I./include -I./mod.io-sdk-v0.11.1/include -std=c++11
 haxe -cp src/examples -main Ex01_Authentication -cpp bin -D macos
 haxe -cp src/examples -main Ex02_BrowseMods -cpp bin -D macos
 haxe -cp src/examples -main Ex03_SubscribeToMod -cpp bin -D macos

@@ -13,7 +13,7 @@ void onModSubscribed(void* object, ModioResponse response, ModioMod mod);
 void onModUnsubscribed(void* object, ModioResponse response);
 void onModDownload(u32 response_code, u32 mod_id);
 void onModUpload(u32 response_code, u32 mod_id);
-void onEvent(ModioResponse response, ModioEvent* events_array, u32 events_array_size);
+void onEvent(ModioResponse response, ModioModEvent* events_array, u32 events_array_size);
 void onModAdded(void* object, ModioResponse response, ModioMod mod);
 void onModEdited(void* object, ModioResponse response, ModioMod mod);
 void onGetAuthenticatedUser(void* object, ModioResponse response, ModioUser user);

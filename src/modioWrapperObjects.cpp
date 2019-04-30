@@ -18,7 +18,7 @@ value getErrorObject(ModioError modio_error)
   return error;
 }
 
-value getEventObject(ModioEvent modio_event)
+value getEventObject(ModioModEvent modio_event)
 {
   value event = alloc_empty_object();
 
