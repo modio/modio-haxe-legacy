@@ -6,7 +6,7 @@
 
 This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It helps you adding mod functionality to your Haxe games by connecting to the [mod.io](https://mod.io/) backend.
 
-<p align="center"><a href="https://apps.mod.io/haxe-wrapper"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe-logo-white-background-large.png" alt="mod.io" width="400"/></a></p>
+<p align="center"><a href="https://apps.mod.io/haxe-wrapper"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe_logo.png" alt="mod.io" width="400"/></a></p>
 
 ### Getting started
 If you are a Haxe game developer and want to add mod.io functionality to your project visit our [documentation](https://github.com/Turupawn/modioHaxe/wiki). Our [getting started](https://apps.mod.io/guides/getting-started) guide is a good place to start if you are completely new to [mod.io](https://mod.io/).
