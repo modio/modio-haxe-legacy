@@ -80,7 +80,7 @@ extern "C"
     event_listener = NULL;
     modioSetDownloadListener(&onModDownload);
     modioSetUploadListener(&onModUpload);
-    modioSetEventListener(&onEvent);
+    modioSetEventListener(&onEventCallback);
 
     modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str(), NULL);
 
@@ -221,7 +221,7 @@ extern "C"
       break;
     }
 
-    modioGetAllMods(new int(current_function), modio_filter, &onGetAllMods);
+    modioGetAllMods(new int(current_function), modio_filter, &onModsCallback);
 
     return 0;
   }
@@ -232,12 +232,12 @@ extern "C"
   {
     current_function++;
 
-    val_check_function(callback, 1);
+    val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
     int mod_id_cpp = valueToInt(mod_id);
 
-    modioSubscribeToMod(new int(current_function), mod_id_cpp, &onModSubscribed);
+    modioSubscribeToMod(new int(current_function), mod_id_cpp, &onModCallback);
 
     return 0;
   }
@@ -456,7 +456,7 @@ extern "C"
         modioAddModCreatorTag(&mod_creator, (char *)tag.c_str());
       }
 
-      modioAddMod(new int(current_function), mod_creator, &onModAdded);
+      modioAddMod(new int(current_function), mod_creator, &onModCallback);
 
     }
     else
@@ -513,7 +513,7 @@ extern "C"
       if (metadata_cpp != "")
         modioSetModEditorMetadataBlob(&mod_editor, (char *)metadata_cpp.c_str());
 
-      modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModEdited);
+      modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModCallback);
 
     }
     else
@@ -566,7 +566,7 @@ extern "C"
     val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
-    modioGetAuthenticatedUser(new int(current_function), &onGetAuthenticatedUser);
+    modioGetAuthenticatedUser(new int(current_function), &onUserCallback);
 
     return 0;
   }
@@ -581,7 +581,7 @@ extern "C"
     ModioFilterCreator filter;
     modioInitFilter(&filter);
 
-    modioGetUserSubscriptions(new int(current_function), filter, &onGetUserSubscriptions);
+    modioGetUserSubscriptions(new int(current_function), filter, &onModsCallback);
 
     return 0;
   }

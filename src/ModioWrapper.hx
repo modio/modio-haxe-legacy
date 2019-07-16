@@ -300,7 +300,7 @@ class ModioWrapper
   public static var isLoggedIn:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperIsLoggedIn",0);
   public static var logout:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperLogout",0);
   public static var getAllMods:Int->Int->Int->(Dynamic->Array<Dynamic>->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAllMods",4);
-  public static var subscribeToMod:Int->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSubscribeToMod",2);
+  public static var subscribeToMod:Int->(Dynamic->Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSubscribeToMod",2);
   public static var unsubscribeFromMod:Int->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperUnsubscribeFromMod",2);
   public static var installDownloadedMods:Void->Void = cpp.Lib.load(ndll_name,"modioWrapperInstallDownloadedMods",0);
   public static var downloadMod:Int->Void = cpp.Lib.load(ndll_name,"modioWrapperDownloadMod",1);
