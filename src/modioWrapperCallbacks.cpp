@@ -6,15 +6,9 @@ value* download_listener = NULL;
 value* upload_listener = NULL;
 value* event_listener = NULL;
 
-void onEmailRequest(void *object, ModioResponse response)
+void onGenericCallback(void *object, ModioResponse response)
 {
   int function_number = *((int*)object);
-  value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));
-}
-
-void onExchange(void *object, ModioResponse response)
-{
-  int function_number = *((int*)object);        
   value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));
 }
 
@@ -33,12 +27,6 @@ void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods
 }
 
 void onModSubscribed(void* object, ModioResponse response, ModioMod mod)
-{
-  int function_number = *((int*)object);
-  value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));
-}
-
-void onModUnsubscribed(void* object, ModioResponse response)
 {
   int function_number = *((int*)object);
   value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));

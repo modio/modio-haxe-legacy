@@ -6,11 +6,9 @@ extern value* download_listener;
 extern value* upload_listener;
 extern value* event_listener;
 
-void onEmailRequest(void *object, ModioResponse response);
-void onExchange(void *object, ModioResponse response);
+void onGenericCallback(void* object, ModioResponse response);
 void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods_size);
 void onModSubscribed(void* object, ModioResponse response, ModioMod mod);
-void onModUnsubscribed(void* object, ModioResponse response);
 void onModDownload(u32 response_code, u32 mod_id);
 void onModUpload(u32 response_code, u32 mod_id);
 void onEvent(ModioResponse response, ModioModEvent* events_array, u32 events_array_size);

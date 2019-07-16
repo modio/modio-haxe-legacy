@@ -118,7 +118,7 @@ extern "C"
     std::string email_cpp = valueToString(email);
 
 
-    modioEmailRequest(new int(current_function), (char *)email_cpp.c_str(), &onEmailRequest);
+    modioEmailRequest(new int(current_function), (char *)email_cpp.c_str(), &onGenericCallback);
 
     return 0;
   }
@@ -133,7 +133,37 @@ extern "C"
     std::string security_code_cpp = valueToString(security_code);
 
 
-    modioEmailExchange(new int(current_function), (char *)security_code_cpp.c_str(), &onExchange);
+    modioEmailExchange(new int(current_function), (char *)security_code_cpp.c_str(), &onGenericCallback);
+
+    return 0;
+  }
+
+  value modioWrapperGalaxyAuth(value appdata, value callback)
+  {
+    current_function++;
+
+    val_check_function(callback, 1);
+    storeFunction(callback, current_function);
+
+    std::string appdata_cpp = valueToString(appdata);
+
+
+    modioGalaxyAuth(new int(current_function), (char *)appdata_cpp.c_str(), &onGenericCallback);
+
+    return 0;
+  }
+
+  value modioWrapperSteamAuthEncoded(value base64_ticket, value callback)
+  {
+    current_function++;
+
+    val_check_function(callback, 1);
+    storeFunction(callback, current_function);
+
+    std::string base64_ticket_cpp = valueToString(base64_ticket);
+
+
+    modioGalaxyAuth(new int(current_function), (char *)base64_ticket_cpp.c_str(), &onGenericCallback);
 
     return 0;
   }
@@ -204,7 +234,7 @@ extern "C"
 
     int mod_id_cpp = valueToInt(mod_id);
 
-    modioUnsubscribeFromMod(new int(current_function), mod_id_cpp, &onModUnsubscribed);
+    modioUnsubscribeFromMod(new int(current_function), mod_id_cpp, &onGenericCallback);
 
     return 0;
   }
@@ -544,6 +574,8 @@ DEFINE_PRIM(modioWrapperInit, 3);
 DEFINE_PRIM(modioWrapperProcess, 0);
 DEFINE_PRIM(modioWrapperEmailRequest, 2);
 DEFINE_PRIM(modioWrapperEmailExchange, 2);
+DEFINE_PRIM(modioWrapperGalaxyAuth, 2);
+DEFINE_PRIM(modioWrapperSteamAuthEncoded, 2);
 DEFINE_PRIM(modioWrapperIsLoggedIn, 0);
 DEFINE_PRIM(modioWrapperLogout, 0);
 DEFINE_PRIM(modioWrapperGetAllMods, 4);
