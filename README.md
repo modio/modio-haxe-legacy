@@ -34,6 +34,26 @@ git push origin my-new-feature
 
 If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/modio/SDK/issues). Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
 
+## Building
+
+```
+# Install the dependences
+sudo apt-get install haxe -y
+sudo haxelib setup
+sudo haxelib install hxcpp
+
+# Compile on linux
+sh LinuxBuild64bits.sh
+
+# Compile on Mac OS
+sh MacOsBuild.sh
+
+# Compile on windows
+ExamplesBuildWindows.bat
+```
+
+The binaries will be located on the `bin/` directory.
+
 ## Other Repositories
 Our aim with [mod.io](https://mod.io), is to provide an open modding API. You are welcome to [view, fork and contribute to our other codebases](https://github.com/modio) in use:
 
