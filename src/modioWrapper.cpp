@@ -168,6 +168,23 @@ extern "C"
     return 0;
   }
 
+  value modioWrapperLinkExternalAccount(value service, value service_id, value email, value callback)
+  {
+    current_function++;
+
+    val_check_function(callback, 1);
+    storeFunction(callback, current_function);
+
+    int service_cpp = valueToInt(service);
+    std::string service_id_cpp = valueToString(service_id);
+    std::string email_cpp = valueToString(email);
+
+
+    modioLinkExternalAccount(new int(current_function), service_cpp, (char *)service_id_cpp.c_str(), (char *)email_cpp.c_str(), &onGenericCallback);
+
+    return 0;
+  }
+
   // Mod browsing
 
   value modioWrapperGetAllMods(value filter_type, value limit, value offset, value callback)
@@ -576,6 +593,7 @@ DEFINE_PRIM(modioWrapperEmailRequest, 2);
 DEFINE_PRIM(modioWrapperEmailExchange, 2);
 DEFINE_PRIM(modioWrapperGalaxyAuth, 2);
 DEFINE_PRIM(modioWrapperSteamAuthEncoded, 2);
+DEFINE_PRIM(modioWrapperLinkExternalAccount, 4);
 DEFINE_PRIM(modioWrapperIsLoggedIn, 0);
 DEFINE_PRIM(modioWrapperLogout, 0);
 DEFINE_PRIM(modioWrapperGetAllMods, 4);

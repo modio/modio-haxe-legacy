@@ -296,6 +296,7 @@ class ModioWrapper
   public static var emailExchange:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailExchange",2);
   public static var galaxyAuth:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperGalaxyAuth",2);
   public static var steamAuthEncoded:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperSteamAuthEncoded",2);
+  public static var linkExternalAccount:Int->String->String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperLinkExternalAccount",4);
   public static var isLoggedIn:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperIsLoggedIn",0);
   public static var logout:Void->Bool = cpp.Lib.load(ndll_name,"modioWrapperLogout",0);
   public static var getAllMods:Int->Int->Int->(Dynamic->Array<Dynamic>->Void)->Int = cpp.Lib.load(ndll_name,"modioWrapperGetAllMods",4);
