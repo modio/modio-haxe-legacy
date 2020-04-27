@@ -20,7 +20,7 @@ class Ex01_Authentication
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
     // Check to see if we have a cookie and are already logged in
     var is_logged_in = ModioWrapper.isLoggedIn();

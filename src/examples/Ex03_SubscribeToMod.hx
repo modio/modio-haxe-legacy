@@ -20,7 +20,7 @@ class Ex03_SubscribeToMod
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
     // Users can subscribe to mods to download and keep them updated
     // This can be achieved by calling "ModioWrapper.process()" continiously, downloads will occur automatically on the background

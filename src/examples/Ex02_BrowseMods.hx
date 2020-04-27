@@ -20,7 +20,7 @@ class Ex02_BrowseMods
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
     // Before requesting mods, let's define the query filters
     // Other sorting types available are: SORT_BY_ID, SORT_BY_DATE_LIVE and SORT_BY_DATE_UPDATED

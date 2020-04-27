@@ -69,11 +69,12 @@ std::vector<std::string> getStringVectorFromObject(value object, std::string arr
 extern "C"
 {
   // General purpose
-  value modioWrapperInit(value modio_environment, value game_id, value api_key)
+  value modioWrapperInit(value modio_environment, value game_id, value api_key, value root_directory)
   {
     int modio_environment_cpp = valueToInt(modio_environment);
     int game_id_cpp = valueToInt(game_id);
     std::string api_key_cpp = valueToString(api_key);
+    std::string root_directory_cpp = valueToString(root_directory);
 
     download_listener = NULL;
     upload_listener = NULL;
@@ -82,7 +83,10 @@ extern "C"
     modioSetUploadListener(&onModUpload);
     modioSetEventListener(&onEvent);
 
-    modioInit(modio_environment_cpp, game_id_cpp, (char *)api_key_cpp.c_str(), NULL);
+    if(root_directory_cpp == "")
+      modioInit(modio_environment_cpp, game_id_cpp, false, true, (char *)api_key_cpp.c_str(), NULL);
+    else
+      modioInit(modio_environment_cpp, game_id_cpp, false, true, (char *)api_key_cpp.c_str(), (char *)root_directory_cpp.c_str());
 
     modioWrapperWriteLogLine("Wrapper v0.6.4 initialized", MODIO_DEBUGLEVEL_LOG);    
 
@@ -570,7 +574,7 @@ extern "C"
   }
 }
 
-DEFINE_PRIM(modioWrapperInit, 3);
+DEFINE_PRIM(modioWrapperInit, 4);
 DEFINE_PRIM(modioWrapperProcess, 0);
 DEFINE_PRIM(modioWrapperEmailRequest, 2);
 DEFINE_PRIM(modioWrapperEmailExchange, 2);

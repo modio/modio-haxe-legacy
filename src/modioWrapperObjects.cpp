@@ -1,4 +1,5 @@
 #include "modioWrapperObjects.h"
+#include <fstream>
 
 value getErrorObject(ModioError modio_error)
 {

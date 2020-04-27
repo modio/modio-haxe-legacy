@@ -289,7 +289,7 @@ class ModioWrapper
     static var ndll_name:String = "modioWrapperMacOS";
   #end
 
-  public static var init:Int->Int->String->Void = cpp.Lib.load(ndll_name,"modioWrapperInit",3);
+  public static var init:Int->Int->String->String->Void = cpp.Lib.load(ndll_name,"modioWrapperInit",4);
   public static var process:Void->Void = cpp.Lib.load(ndll_name,"modioWrapperProcess",0);
   
   public static var emailRequest:String->(Dynamic->Void)->Void = cpp.Lib.load(ndll_name,"modioWrapperEmailRequest",2);

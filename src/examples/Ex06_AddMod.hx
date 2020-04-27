@@ -20,7 +20,7 @@ class Ex06_AddMod
       finished = true;
     }
 
-    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
     var is_logged_in = ModioWrapper.isLoggedIn();
 
     // The upload listener will be called once the modfile has finished uploading

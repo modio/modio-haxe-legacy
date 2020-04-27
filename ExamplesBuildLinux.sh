@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir bin
-MODIO_SDK_PATH="mod.io-sdk-v0.11.2"
+MODIO_SDK_PATH="mod.io-sdk-v0.12.12"
 MODIO_LINKER_PATH="$MODIO_SDK_PATH/lib/linux/x64"
 MODIO_LIBRARY_PATH="$MODIO_LINKER_PATH/libmodio.so"
 MODIO_INCLUDE_PATH="$MODIO_SDK_PATH/include"

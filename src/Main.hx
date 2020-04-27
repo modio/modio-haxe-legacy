@@ -63,7 +63,7 @@ class Main
 
   static function main()
   {
-    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+    ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
     ModioWrapper.setDownloadListener(function(response:Dynamic, mod_id:Int)
     {

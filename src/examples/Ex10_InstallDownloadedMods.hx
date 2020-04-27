@@ -9,7 +9,7 @@ class Ex10_InstallDownloadedMods {
 			}
 		}
 
-		ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+		ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
 		trace("Listening to mod events...");
 		ModioWrapper.setDownloadListener(function(response_code:Int, mod_id:Int) {

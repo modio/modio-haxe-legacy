@@ -9,7 +9,7 @@ class Ex09_SetEventListener {
 			}
 		}
 
-		ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b");
+		ModioWrapper.init(ModioWrapper.ENVIRONMENT_TEST, 7, "e91c01b8882f4affeddd56c96111977b", "");
 
 		// Everytime a mod finished intalling the download listener function will be called
 		trace("Listening to mod events...");
