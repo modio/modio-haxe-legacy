@@ -81,7 +81,7 @@ extern "C"
     event_listener = NULL;
     modioSetDownloadListener(&onModDownload);
     modioSetUploadListener(&onModUpload);
-    modioSetEventListener(&onEvent);
+    modioSetEventListener(&onEventCallback);
 
     if(root_directory_cpp == "")
       modioInit(modio_environment_cpp, game_id_cpp, false, true, (char *)api_key_cpp.c_str(), NULL);
@@ -172,6 +172,23 @@ extern "C"
     return 0;
   }
 
+  value modioWrapperLinkExternalAccount(value service, value service_id, value email, value callback)
+  {
+    current_function++;
+
+    val_check_function(callback, 1);
+    storeFunction(callback, current_function);
+
+    int service_cpp = valueToInt(service);
+    std::string service_id_cpp = valueToString(service_id);
+    std::string email_cpp = valueToString(email);
+
+
+    modioLinkExternalAccount(new int(current_function), service_cpp, (char *)service_id_cpp.c_str(), (char *)email_cpp.c_str(), &onGenericCallback);
+
+    return 0;
+  }
+
   // Mod browsing
 
   value modioWrapperGetAllMods(value filter_type, value limit, value offset, value callback)
@@ -208,7 +225,7 @@ extern "C"
       break;
     }
 
-    modioGetAllMods(new int(current_function), modio_filter, &onGetAllMods);
+    modioGetAllMods(new int(current_function), modio_filter, &onModsCallback);
 
     return 0;
   }
@@ -219,12 +236,12 @@ extern "C"
   {
     current_function++;
 
-    val_check_function(callback, 1);
+    val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
     int mod_id_cpp = valueToInt(mod_id);
 
-    modioSubscribeToMod(new int(current_function), mod_id_cpp, &onModSubscribed);
+    modioSubscribeToMod(new int(current_function), mod_id_cpp, &onModCallback);
 
     return 0;
   }
@@ -443,7 +460,7 @@ extern "C"
         modioAddModCreatorTag(&mod_creator, (char *)tag.c_str());
       }
 
-      modioAddMod(new int(current_function), mod_creator, &onModAdded);
+      modioAddMod(new int(current_function), mod_creator, &onModCallback);
 
     }
     else
@@ -500,7 +517,7 @@ extern "C"
       if (metadata_cpp != "")
         modioSetModEditorMetadataBlob(&mod_editor, (char *)metadata_cpp.c_str());
 
-      modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModEdited);
+      modioEditMod(new int(current_function), mod_id_cpp, mod_editor, &onModCallback);
 
     }
     else
@@ -553,7 +570,7 @@ extern "C"
     val_check_function(callback, 2);
     storeFunction(callback, current_function);
 
-    modioGetAuthenticatedUser(new int(current_function), &onGetAuthenticatedUser);
+    modioGetAuthenticatedUser(new int(current_function), &onUserCallback);
 
     return 0;
   }
@@ -568,7 +585,7 @@ extern "C"
     ModioFilterCreator filter;
     modioInitFilter(&filter);
 
-    modioGetUserSubscriptions(new int(current_function), filter, &onGetUserSubscriptions);
+    modioGetUserSubscriptions(new int(current_function), filter, &onModsCallback);
 
     return 0;
   }
@@ -580,6 +597,7 @@ DEFINE_PRIM(modioWrapperEmailRequest, 2);
 DEFINE_PRIM(modioWrapperEmailExchange, 2);
 DEFINE_PRIM(modioWrapperGalaxyAuth, 2);
 DEFINE_PRIM(modioWrapperSteamAuthEncoded, 2);
+DEFINE_PRIM(modioWrapperLinkExternalAccount, 4);
 DEFINE_PRIM(modioWrapperIsLoggedIn, 0);
 DEFINE_PRIM(modioWrapperLogout, 0);
 DEFINE_PRIM(modioWrapperGetAllMods, 4);

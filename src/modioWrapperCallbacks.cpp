@@ -12,7 +12,7 @@ void onGenericCallback(void *object, ModioResponse response)
   value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));
 }
 
-void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods_size)
+void onModsCallback(void* object, ModioResponse response, ModioMod* mods, u32 mods_size)
 {
   int function_number = *((int*)object);
 
@@ -26,10 +26,10 @@ void onGetAllMods(void* object, ModioResponse response, ModioMod* mods, u32 mods
   value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), mods_haxe);
 }
 
-void onModSubscribed(void* object, ModioResponse response, ModioMod mod)
+void onModCallback(void* object, ModioResponse response, ModioMod mod)
 {
   int function_number = *((int*)object);
-  value ret = val_call1(*(functions_stored[function_number]), getResponseObject(response));
+  value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), getModObject(mod));
 }
 
 void onModDownload(u32 response_code, u32 mod_id)
@@ -52,7 +52,7 @@ void onModUpload(u32 response_code, u32 mod_id)
   }
 }
 
-void onEvent(ModioResponse response, ModioModEvent* events_array, u32 events_array_size)
+void onEventCallback(ModioResponse response, ModioModEvent* events_array, u32 events_array_size)
 {
   if(event_listener != NULL)
   {
@@ -68,35 +68,8 @@ void onEvent(ModioResponse response, ModioModEvent* events_array, u32 events_arr
   }
 }
 
-void onModAdded(void* object, ModioResponse response, ModioMod mod)
-{
-  int function_number = *((int*)object);
-  value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), getModObject(mod));
-}
-
-void onModEdited(void* object, ModioResponse response, ModioMod mod)
-{
-  int function_number = *((int*)object);
-  value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), getModObject(mod));
-}
-
-void onGetAuthenticatedUser(void* object, ModioResponse response, ModioUser user)
+void onUserCallback(void* object, ModioResponse response, ModioUser user)
 {
   int function_number = *((int*)object);
   value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), getUserObject(user));
-}
-
-void onGetUserSubscriptions(void* object, ModioResponse response, ModioMod* mods, u32 mods_size)
-{
-  int function_number = *((int*)object);
-  
-  value mods_haxe = alloc_array (mods_size);
-  for (int i = 0; i < mods_size; i++)
-  {
-    ModioMod modio_mod = mods[i];
-    value mod = getModObject(modio_mod);
-    val_array_set_i (mods_haxe, i, mod);
-  }
-  
-  value ret = val_call2(*(functions_stored[function_number]), getResponseObject(response), mods_haxe);
 }
