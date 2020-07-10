@@ -15,9 +15,9 @@ If you are a Haxe game developer and want to add mod.io functionality to your pr
 
 In case you are using OpenFL, take a look at the OpenFL [installation tutorial](https://github.com/Turupawn/modioOpenFLExample#openfl-integration) and [examples](https://github.com/Turupawn/modioOpenFLExample/tree/master/Source).
 
-### Building instructions
+### Building
 
-Learn how to build the Haxe wrapper by following our [building instruction guide](https://github.com/Turupawn/modioHaxe/wiki/Building).
+Build the Haxe wrapper from source by following our [building instruction guide](https://github.com/Turupawn/modioHaxe/wiki/Building).
 
 ### Code contributions
 
@@ -33,26 +33,6 @@ git push origin my-new-feature
 ### Reporting a bug
 
 If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/modio/SDK/issues). Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
-
-## Building
-
-```
-# Install the dependences
-sudo apt-get install haxe -y
-sudo haxelib setup
-sudo haxelib install hxcpp
-
-# Compile on linux
-sh LinuxBuild64bits.sh
-
-# Compile on Mac OS
-sh MacOsBuild.sh
-
-# Compile on windows
-ExamplesBuildWindows.bat
-```
-
-The binaries will be located on the `bin/` directory.
 
 ## Other Repositories
 Our aim with [mod.io](https://mod.io), is to provide an open modding API. You are welcome to [view, fork and contribute to our other codebases](https://github.com/modio) in use:
