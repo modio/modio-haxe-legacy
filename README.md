@@ -4,12 +4,12 @@
 [![Discord](https://img.shields.io/discord/389039439487434752.svg?label=Discord&logo=discord&color=7289DA&labelColor=2C2F33)](https://discord.mod.io)
 [![Master docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/Turupawn/modioHaxe/wiki)
 
-This project is a [Haxe wrapper](https://apps.mod.io/haxe-wrapper) of the [mod.io SDK](https://apps.mod.io/sdk) available on [Github](https://sdk.mod.io). It helps you adding mod functionality to your Haxe games by connecting to the [mod.io](https://mod.io/) backend.
+This project is a Haxe wrapper of the [mod.io SDK](https://github.com/modio/SDK). It helps you adding mod functionality to your Haxe games by connecting to the [mod.io](https://mod.io/) backend.
 
-<p align="center"><a href="https://apps.mod.io/haxe-wrapper"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe_logo.png" alt="mod.io" width="400"/></a></p>
+<p align="center"><img src="https://image.mod.io/members/c4ca/1/profileguides/haxe_logo.png" alt="mod.io" width="400"/></p>
 
 ### Getting started
-If you are a Haxe game developer and want to add mod.io functionality to your project visit our [documentation](https://github.com/Turupawn/modioHaxe/wiki). Our [getting started](https://apps.mod.io/guides/getting-started) guide is a good place to start if you are completely new to [mod.io](https://mod.io/).
+If you are a Haxe game developer and want to add mod.io functionality to your project visit our [documentation](https://github.com/Turupawn/modioHaxe/wiki). Our [getting started](https://mod.io/blog/getting-started) guide is a good place to start if you are completely new to [mod.io](https://mod.io/).
 
 ### OpenFL
 
@@ -39,7 +39,6 @@ Our aim with [mod.io](https://mod.io), is to provide an open modding API. You ar
 
 * [Design](https://design.mod.io) is public and open source, the repository can be [found here](https://github.com/modio/WebDesign).
 * [API documentation](https://docs.mod.io) is public and open source, the repository can be [found here](https://github.com/modio/APIDocs).
-* [Browse engine tools](https://apps.mod.io), plugins and wrappers created by the community, or [share your own](https://apps.mod.io/add).
 * [Unreal Engine 4 plugin](https://github.com/modio/UE4Plugin), easily manage the browsing and install of mods in Unreal Engine 4 games
 * [Unity plugin](https://github.com/modio/UnityPlugin), easily manage the browsing and install of mods in Unity Engine games
 * [Python wrapper](https://github.com/ClementJ18/mod.io), a python wrapper for the mod.io API
