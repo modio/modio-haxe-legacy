@@ -8,6 +8,7 @@ value getErrorObject(ModioError modio_error)
   alloc_field(error, val_id("code"), alloc_int(modio_error.code));
   if(modio_error.message)
     alloc_field(error, val_id("message"), alloc_string(modio_error.message));
+  alloc_field(error, val_id("error_ref"), alloc_int(modio_error.error_ref));
 
   value errors = alloc_array(modio_error.errors_array_size);
   for (int i = 0; i < modio_error.errors_array_size; i++)
