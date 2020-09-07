@@ -3,3 +3,8 @@ bin/
 .modio/
 *.obj
 **/.DS_Store
+out/
+.vs/
+.idea/
+cmake-build-debug/
+Build/
